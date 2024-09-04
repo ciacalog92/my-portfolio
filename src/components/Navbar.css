@@ -215,7 +215,7 @@
 
 .typing-effect {
   font-family: monospace;
-  font-size: 1.5rem; /* Modifica la dimensione a piacere */
+  font-size: 1.2rem; /* Modifica la dimensione a piacere */
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid;
