@@ -279,3 +279,107 @@
   
     margin-bottom: 60px;
 }
+/* Media queries per dispositivi mobili */
+@media (max-width: 768px) {
+  .Home {
+    padding: 20px 10px;
+  }
+
+  .Home h1 {
+    font-size: 36px;
+  }
+
+  .Home > p {
+    font-size: 18px;
+  }
+
+  .cv-card {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .cv-card h2 {
+    font-size: 24px;
+  }
+
+  .cv-card p {
+    font-size: 16px;
+  }
+
+  .cv-content {
+    padding: 20px;
+  }
+
+  .cv-content h2 {
+    font-size: 20px;
+  }
+
+  .cv-content li {
+    font-size: 14px;
+  }
+
+  .download-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-header h1 {
+    font-size: 28px;
+  }
+
+  .profile-header p {
+    font-size: 18px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .memory-card {
+    height: 80px;
+  }
+
+  .memory-card .card-front,
+  .memory-card .card-back {
+    font-size: 1.5rem;
+  }
+}
+
+/* Media queries per schermi più grandi */
+@media (min-width: 1200px) {
+  .memory-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .memory-card {
+    height: 120px;
+  }
+
+  .memory-card .card-front,
+  .memory-card .card-back {
+    font-size: 2.5rem;
+  }
+}
