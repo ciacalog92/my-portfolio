@@ -1,0 +1,225 @@
+/* Navbar.css */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto di scroll: cambia colore della navbar */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Aggiungi un effetto hover al logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1);
+  color: #0071e3;
+}
+
+/* Cambia colore dello sfondo al passaggio del mouse sul logo */
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #000000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.logo-text:hover {
+  background-color: #0071e3;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
+
+/* Aggiungi transizione alle voci del menu */
+.nav-links {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links:hover {
+  color: #0071e3;
+  transform: scale(1.1);
+}
+
+/* Menu icon */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu-icon span {
+  width: 30px;
+  height: 3px;
+  background: #000;
+  transition: all 0.3s linear;
+}
+
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Effetti per schermi più piccoli */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: rgba(255, 255, 255, 0.9);
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    display: table;
+  }
+}
+.logo-img {
+  width: 40px; /* Puoi modificare questa dimensione a tuo piacimento */
+  height: auto;
+  margin-right: 10px;
+}
+/* Linea dinamica sotto i link della navbar */
+.nav-links {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 5px; /* Spazio per la linea sottostante */
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Linea animata sotto i link */
+.nav-links::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0071e3; /* Colore della linea */
+  transform: scaleX(0); /* Inizia con la linea nascosta */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+/* Effetto hover per la linea */
+.nav-links:hover::after {
+  transform: scaleX(1); /* La linea si espande su hover */
+  transform-origin: bottom left;
+}
+
+/* Linea attiva per la pagina corrente */
+.nav-links.active::after {
+  transform: scaleX(1); /* La linea è visibile per il link attivo */
+  transform-origin: bottom left;
+}
+
+.nav-links:hover {
+  color: #0071e3;
+  transform: scale(1.1); /* Ingrandisce leggermente il testo */
+}
+
+/* Aggiungi la classe active per il link corrente */
+.nav-item .nav-links.active {
+  color: #0071e3; /* Cambia il colore del testo per il link attivo */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+.typing-effect {
+  font-family: monospace;
+  font-size: 1.5rem; /* Modifica la dimensione a piacere */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  width: 15ch; /* Numero di caratteri del testo */
+  animation: typing 4s steps(15) 1s 1 normal both, 
+             blink 0.75s step-end infinite;
+}
