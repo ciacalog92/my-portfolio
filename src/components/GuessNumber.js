@@ -1,15 +1,15 @@
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 import './GuessNumber.css';
 
 const GuessNumber = () => {
   const [target, setTarget] = useState(Math.floor(Math.random() * 100) + 1);
   const [guess, setGuess] = useState('');
   const [message, setMessage] = useState('');
-  const [attempts, setAttempts] = useState(0);
+  const [, setAttempts] = useState(0);
 
-  const handleGuess = () => {
+  function handleGuess() {
     const num = parseInt(guess);
-    
+
     if (isNaN(num)) {
       setMessage('Per favore, inserisci un numero valido.');
       return;
@@ -23,17 +23,18 @@ const GuessNumber = () => {
     setAttempts(prevAttempts => {
       const newAttempts = prevAttempts + 1;
 
+      // Provide feedback to the user including the number of attempts
       if (num === target) {
         setMessage(`Congratulazioni! Hai indovinato in ${newAttempts} tentativi.`);
       } else if (num < target) {
-        setMessage('Troppo basso. Prova di nuovo!');
+        setMessage(`Troppo basso. Prova di nuovo! Hai fatto ${newAttempts} tentativi.`);
       } else {
-        setMessage('Troppo alto. Prova di nuovo!');
+        setMessage(`Troppo alto. Prova di nuovo! Hai fatto ${newAttempts} tentativi.`);
       }
 
       return newAttempts;
     });
-  };
+  }
 
   const resetGame = () => {
     setTarget(Math.floor(Math.random() * 100) + 1);
@@ -60,5 +61,3 @@ const GuessNumber = () => {
 };
 
 export default GuessNumber;
-
-
