@@ -3,6 +3,17 @@ import './Home.css';
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Confetti from 'react-confetti';
 
+// Importa le immagini
+import dogImage from '../images/cardback.png';
+import catImage from '../images/cardback.png';
+import fishImage from '../images/cardback.png';
+import pandaImage from '../images/cardback.png';
+import tigerImage from '../images/cardback.png';
+import monkeyImage from '../images/cardback.png';
+import lionImage from '../images/cardback.png';
+import koalaImage from '../images/cardback.png';
+import gameTitleImage from '../images/memory-match-game.png';
+
 function Home() {
   const [showCV, setShowCV] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -38,14 +49,14 @@ function Home() {
 
   const initializeCards = () => {
     const initialCards = [
-      { id: 1, content: '🐶', matched: false },
-      { id: 2, content: '🐱', matched: false },
-      { id: 3, content: '🦊', matched: false },
-      { id: 4, content: '🐼', matched: false },
-      { id: 5, content: '🐯', matched: false },
-      { id: 6, content: '🐵', matched: false },
-      { id: 7, content: '🦁', matched: false },
-      { id: 8, content: '🐨', matched: false },
+      { id: 1, content: '🐶', image: dogImage },
+      { id: 2, content: '🐱', image: catImage },
+      { id: 3, content: '🦊', image: fishImage },
+      { id: 4, content: '🐼', image: pandaImage },
+      { id: 5, content: '🐯', image: tigerImage },
+      { id: 6, content: '🐵', image: monkeyImage },
+      { id: 7, content: '🦁', image: lionImage },
+      { id: 8, content: '🐨', image: koalaImage },
     ];
     const shuffledCards = [...initialCards, ...initialCards].sort(() => Math.random() - 0.5);
     setCards(shuffledCards);
@@ -84,8 +95,7 @@ function Home() {
             recycle={false}
           />
         )}
-        <h2>Memory Match Game</h2>
-    
+        <img src={gameTitleImage} alt="Memory Match Game" className="game-title-image" /> {/* Immagine del titolo */}    
         <div className="memory-grid">
           {cards.map((card, index) => (
             <div
@@ -94,7 +104,9 @@ function Home() {
               onClick={() => handleCardClick(index)}
             >
               <div className="card-front">{card.content}</div>
-              <div className="card-back"></div>
+              <div className="card-back">
+                <img src={card.image} alt="Card Back" />
+              </div>
             </div>
           ))}
         </div>
@@ -169,7 +181,7 @@ function Home() {
 
       <div className="social-icons">
         <a href="https://wa.me/393312997797" target="_blank" rel="noopener noreferrer">
-        <FaWhatsapp/>
+          <FaWhatsapp />
         </a>
         <a href="https://www.instagram.com/ciacciocalogero/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
@@ -177,11 +189,8 @@ function Home() {
         <a href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
-        
       </div>
-      
     </div>
-    
   );
 }
 

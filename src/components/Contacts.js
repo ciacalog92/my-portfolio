@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contacts.css';
+import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Contacts() {
   const [formData, setFormData] = useState({
@@ -58,12 +59,18 @@ function Contacts() {
           <button type="submit">Invia</button>
         </form>
       </section>
-      <section className="social-links">
+     <div className="social-links">
         <h2>Seguimi sui Social</h2>
-        <a href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/tuousername" target="_blank" rel="noopener noreferrer">GitHub</a>
-        {/* Aggiungi altri link social se necessario */}
-      </section>
+        <a href="https://wa.me/393312997797" target="_blank" rel="noopener noreferrer">
+          <FaWhatsapp />
+        </a>
+        <a href="https://www.instagram.com/ciacciocalogero/" target="_blank" rel="noopener noreferrer">
+          <FaInstagram />
+        </a>
+        <a href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin />
+        </a>
+        </div>
     </div>
   );
 }
