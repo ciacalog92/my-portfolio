@@ -1,8 +1,19 @@
-//netlify/functions/openai.js
 const axios = require('axios');
 
 exports.handler = async function (event, context) {
-  const { input } = JSON.parse(event.body); // Prende l'input dal body della richiesta
+  console.log('Chiave API:', process.env.OPENAI_API_KEY);
+
+  let input;
+  try {
+    const body = JSON.parse(event.body);
+    input = body.input;
+  } catch (error) {
+    console.error('Errore nel parsing del body:', error);
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Errore nel parsing del body' }),
+    };
+  }
 
   try {
     const response = await axios.post(
@@ -15,7 +26,7 @@ exports.handler = async function (event, context) {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, // Usa la chiave API dalle variabili d'ambiente
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         },
       }
     );
@@ -25,7 +36,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ text: response.data.choices[0].text }),
     };
   } catch (error) {
-    console.error("Errore API OpenAI", error);
+    console.error("Errore API OpenAI:", error.response ? error.response.data : error.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Errore durante la chiamata API' }),

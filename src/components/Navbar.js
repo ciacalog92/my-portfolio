@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../images/logo.svg';
+import LottieMenuIcon from './LottieMenuIcon'; // Importa il componente Lottie
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,7 @@ function Navbar() {
           <span className="typing-effect">I'm a Web Developer</span>
         </Link>
         <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
+          <LottieMenuIcon /> {/* Usa il componente Lottie qui */}
         </div>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li className="nav-item">
@@ -47,5 +46,4 @@ function Navbar() {
 }
 
 export default Navbar;
-
 

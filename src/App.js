@@ -6,7 +6,9 @@ import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetail';
 import About from './components/About';
 import Contacts from './components/Contacts';
+
 import './App.css';
+
 
 function App() {
   return (
