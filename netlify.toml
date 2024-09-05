@@ -1,0 +1,6 @@
+[build]
+  functions = "netlify/functions"
+
+[dev]
+  # Porta per eseguire localmente le funzioni serverless
+  functionsPort = 8888

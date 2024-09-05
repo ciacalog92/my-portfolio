@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Projects.css'; // Creeremo questo file più tardi
+import './Projects.css'; // 
 
 const projects = [
   {

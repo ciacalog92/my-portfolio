@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Confetti from 'react-confetti';
+import ChatBot from './ChatBot'; // Importa il componente ChatBot
 
 // Importa le immagini
 import dogImage from '../images/cardback.png';
@@ -189,6 +190,11 @@ function Home() {
         <a href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
+      </div>
+
+      {/* Posizione ChatBot in fondo a destra */}
+      <div className="chatbot-container">
+        <ChatBot />
       </div>
     </div>
   );

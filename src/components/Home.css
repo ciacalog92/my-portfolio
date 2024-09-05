@@ -372,5 +372,25 @@
   height: auto;
   margin: 0 auto 20px auto; /* Centra l'immagine e aggiungi margine inferiore */
   display: block;
+  padding-bottom: 2.5rem;
 
+}
+/* Home.css */
+
+/* Stile per il contenitore del ChatBot */
+.chatbot-container {
+  position: fixed; /* Mantiene il ChatBot fisso rispetto alla finestra del browser */
+  bottom: 10px; /* Distanza dal fondo della finestra */
+  right: 10px; /* Distanza dal lato destro della finestra */
+  z-index: 1000; /* Assicura che il ChatBot sia sopra altri contenuti */
+  width: auto; /* Larghezza automatica */
+  max-width: 100%; /* Non supera la larghezza della finestra */
+}
+
+/* Per i dispositivi con schermi piccoli */
+@media (max-width: 760px) {
+  .chatbot-container {
+    bottom: 5px; /* Riduci la distanza dal fondo */
+    right: 5px; /* Riduci la distanza dal lato destro */
+  }
 }

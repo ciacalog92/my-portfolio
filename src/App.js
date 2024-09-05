@@ -7,13 +7,11 @@ import ProjectDetail from './components/ProjectDetail';
 import About from './components/About';
 import Contacts from './components/Contacts';
 import './App.css';
-import RotatingBorderDiv from './RotatingBorderDiv'; // Assicurati di avere il percorso corretto
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <RotatingBorderDiv /> {/* Include qui il componente per l'effetto di animazione */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

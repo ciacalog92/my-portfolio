@@ -37,7 +37,7 @@
 
 .navbar-logo:hover {
   transform: scale(1.1);
-  color: #0071e3;
+  color: #000000;
 }
 
 /* Cambia colore dello sfondo al passaggio del mouse sul logo */
@@ -80,7 +80,7 @@
 }
 
 .nav-links:hover {
-  color: #0071e3;
+  color: #070707;
   transform: scale(1.1);
 }
 
@@ -175,7 +175,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #0071e3; /* Colore della linea */
+  background-color: #000000; /* Colore della linea */
   transform: scaleX(0); /* Inizia con la linea nascosta */
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
@@ -200,7 +200,7 @@
 
 /* Aggiungi la classe active per il link corrente */
 .nav-item .nav-links.active {
-  color: #0071e3; /* Cambia il colore del testo per il link attivo */
+  color: #000000; /* Cambia il colore del testo per il link attivo */
 }
 
 @keyframes typing {
