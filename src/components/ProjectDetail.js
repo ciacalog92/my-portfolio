@@ -1,10 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './ProjectDetail.css';
-import { default as GuessNumber } from './GuessNumber';
+import GuessNumber from './GuessNumber';
 import MiniEcommerce from './MiniEcommerce';
 import ToDoList from './ToDoList';
-
+import MemoryMatchGame from './MemoryMatchGame'; // Importa il gioco
 
 const projects = [
   {
@@ -23,18 +22,23 @@ const projects = [
   },
   {
     id: 3,
+    title: "Memory Match Game", // Aggiungi il gioco Memory Match
+    description: "A fun memory matching game built with React",
+    longDescription: "This memory matching game challenges players to match pairs of animal cards. Flip the cards to find matches and see how many moves it takes to complete the game.",
+    component: <MemoryMatchGame />
+  },
+  {
+    id: 4,
     title: "To Do List",
     description: "A task management system built with React and Firebase",
     longDescription: "This task management system allows users to create, edit, and delete tasks. It also provides features such as task categorization and due date management.",
     component: <ToDoList />
-   
   }
-  // ... altri progetti
 ];
 
 function ProjectDetail() {
   const { id } = useParams();
-  const project = projects.find(p => p.id === parseInt(id));
+  const project = projects.find((p) => p.id === parseInt(id));
 
   if (!project) {
     return <div>Project not found</div>;
@@ -45,7 +49,7 @@ function ProjectDetail() {
       <h2>{project.title}</h2>
       <p>{project.longDescription}</p>
       {project.component}
-      <Link to="/projects" className="back-button">Back to Projects</Link>
+      <Link to="/projects" className="view-project">Back to Projects</Link>
     </div>
   );
 }

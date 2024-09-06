@@ -1,0 +1,135 @@
+/* MemoryMatchGame.css */
+
+.memory-game {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 80px;
+    border-radius: 2rem;
+}
+  
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mantiene 4 colonne fisse */
+    gap: 10px;
+  }
+  
+  .memory-card {
+    position: relative;
+    width: 100%; /* Adatta la card alla larghezza del contenitore */
+    padding-top: 100%; /* Mantiene il rapporto di aspetto 1:1 */
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .memory-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 12px;
+  }
+  
+  .card-front {
+    background-color: #ffffff;
+    color: #fff;
+    transform: rotateY(180deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-back {
+    background-color: #ddd;
+    transform: rotateY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .memory-card.flipped .card-front {
+    transform: rotateY(0);
+  }
+  
+  .memory-card.flipped .card-back {
+    transform: rotateY(180deg);
+  }
+  
+  .memory-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .restart-button {
+    display: inline-block;
+    background-color: #0071e3;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 24px;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+  }
+  
+  .restart-button:hover {
+    background-color: #0077ed;
+    transform: scale(1.05);
+  }
+  
+  .game-title-image {
+    width: 100%;
+    max-width: 600px; /* Adatta la dimensione massima in base alle tue esigenze */
+    height: auto;
+    margin: 0 auto 20px auto; /* Centra l'immagine e aggiungi margine inferiore */
+    display: block;
+    padding-bottom: 2.5rem;
+  }
+  
+  /* Media queries per dispositivi mobili */
+  @media (max-width: 768px) {
+    .memory-grid {
+      grid-template-columns: repeat(4, 1fr); /* Mantiene 4 colonne su schermi piccoli */
+    }
+  
+    .memory-card {
+      padding-top: 100%; /* Mantiene il rapporto di aspetto 1:1 */
+    }
+  
+    .card-front,
+    .card-back {
+      font-size: 2.5rem; /* Font più piccolo per schermi più piccoli */
+    }
+  }
+  
+  /* Media queries per schermi più grandi */
+  @media (min-width: 1200px) {
+    .memory-grid {
+      grid-template-columns: repeat(4, 1fr); /* Mantiene 4 colonne su schermi più grandi */
+    }
+  
+    .memory-card {
+      padding-top: 100%; /* Mantiene il rapporto di aspetto 1:1 */
+    }
+  
+    .card-front,
+    .card-back {
+      font-size: 4.5rem; /* Font più grande per schermi più grandi */
+    }
+  }
+  

@@ -1,0 +1,72 @@
+/* Imposta il tema di default: giorno */
+.theme-toggle {
+    position: fixed; /* Mantiene il ThemeToggle fisso rispetto alla finestra del browser */
+    top: 10px; /* Distanza dal top della finestra */
+    right: 10px; /* Distanza dal lato destro della finestra */
+    z-index: 1000; /* Assicura che il ThemeToggle sia sopra altri contenuti */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Tema giorno */
+  .light-mode {
+    background-color: #ffffff; /* Colore di sfondo giorno */
+    color: #000000; /* Colore del testo giorno */
+  }
+  
+  /* Tema notte */
+  .dark-mode {
+    background-color: #000000; /* Colore di sfondo notte */
+    color: #ffffff; /* Colore del testo notte */
+  }
+  
+  /* Stile per il bottone */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Bottone nella modalità giorno */
+  .light-mode button {
+    background-color: #0071e3;
+    color: #ffffff;
+  }
+  
+  /* Bottone nella modalità notte */
+  .dark-mode button {
+    background-color: #444;
+    color: #ffffff;
+  }
+  
+  /* Bottone hover */
+  button:hover {
+    opacity: 0.8;
+  }
+/* Stile per il contenitore del ThemeToggle */
+.theme-toggle {
+    display: flex;
+    justify-content: center; /* Centra il bottone orizzontalmente */
+    margin: 20px 0; /* Margine per separare il bottone da altri elementi */
+  }
+  
+  /* Stile per il bottone */
+  .theme-toggle button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .theme-toggle button:hover {
+    opacity: 0.8;
+  }
+  
