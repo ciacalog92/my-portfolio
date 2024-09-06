@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css'; 
+import memoryMatchImage from '../images/gameplay.png';
+
 
 const projects = [
   {
@@ -19,7 +21,8 @@ const projects = [
     id: 3,
     title: "Memory Match Game", // Aggiungi il gioco nella lista dei progetti
     description: "A fun memory matching game built with React",
-    image: "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: memoryMatchImage
+
   },
   {
     id: 4,
