@@ -48,7 +48,7 @@ function About() {
         Ciao, sono Calogero Ciaccio, un Junior Front-End Developer appassionato di tecnologia e innovazione.
         La mia passione per lo sviluppo web mi spinge costantemente a imparare nuove tecnologie e a migliorare le mie competenze.
       </p>
-      <h3>Le Mie Competenze</h3>
+      <h3>Le Mie Competenze are</h3>
       <ul>
         <li>HTML5, CSS3, JavaScript</li>
         <li>React.js</li>
