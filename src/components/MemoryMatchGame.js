@@ -1,5 +1,6 @@
-// MemoryGame.js
+// src/components/MemoryMatchGame.js
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './MemoryMatchGame.css';
 import Confetti from 'react-confetti';
 import dogImage from '../images/cardback.png';
@@ -12,8 +13,8 @@ import lionImage from '../images/cardback.png';
 import koalaImage from '../images/cardback.png';
 import gameTitleImage from '../images/memory-match-game.png';
 
-
-function MemoryGame() {
+function MemoryMatchGame() {
+  const navigate = useNavigate(); // Inizializza useNavigate
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -97,8 +98,10 @@ function MemoryGame() {
           Ricomincia il gioco
         </button>
       )}
+      <button className="back-button" onClick={() => navigate('/')}>Torna alla Home</button>
     </div>
   );
 }
 
-export default MemoryGame;
+export default MemoryMatchGame;
+

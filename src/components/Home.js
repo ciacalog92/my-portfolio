@@ -1,11 +1,36 @@
+// Home.js
 import React from 'react';
 import './Home.css';
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import ChatBot from './ChatBot'; // Importa il componente ChatBot
+import ComputerAnimation from './ComputerAnimation'; // Importa il componente ComputerAnimation
 
 function Home() {
   return (
     <div className="Home">
+      {/* Sezione header con animazione */}
+      <div className="header-section">
+        <h1>FrontEnd Developer</h1>
+        <ComputerAnimation />
+      </div>
+
+      {/* Sezione delle card */}
+      <div className="card-container">
+        <div className="card">
+          <h3>Card Title 1</h3>
+          <p>Some content for the first card.</p>
+        </div>
+        <div className="card">
+          <h3>Card Title 2</h3>
+          <p>Some content for the second card.</p>
+        </div>
+        <div className="card">
+          <h3>Card Title 3</h3>
+          <p>Some content for the third card.</p>
+        </div>
+      </div>
+
+      {/* Form di contatto */}
       <form className="contact-form">
         <h2>Contattami</h2>
         <input
@@ -28,6 +53,7 @@ function Home() {
         <button type="submit">Invia</button>
       </form>
 
+      {/* Icone social */}
       <div className="social-icons">
         <a href="https://wa.me/393312997797" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
