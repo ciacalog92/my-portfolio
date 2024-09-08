@@ -98,6 +98,7 @@ function MemoryMatchGame() {
           Ricomincia il gioco
         </button>
       )}
+      <button className="back-button" onClick={() => navigate('/')}>Torna alla Home</button>
     </div>
   );
 }
