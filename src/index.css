@@ -1,3 +1,5 @@
+/* index.css */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +7,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f7;
-  color: #1d1d1f;
+  background-color: var(--background-color); /* Utilizza la variabile CSS per il colore di sfondo */
+  color: var(--text-color); /* Utilizza la variabile CSS per il colore del testo */
   padding-top: 60px; /* Aggiungi un padding top pari all'altezza della navbar */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni per cambio di tema */
+}
+
+/* Stili generali per il tema giorno */
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #0071e3;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
 }

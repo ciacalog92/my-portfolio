@@ -1,74 +1,99 @@
+/* Projects.css */
+
+/* Stili per il contenitore dei progetti */
 .projects-container {
-    padding: 80px 20px;
-  }
-  
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-  
-  .project-card {
-    background-color: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .project-card h3 {
-    font-size: 1.5rem;
-    margin: 20px 0 10px;
-    color: #1d1d1f;
-  }
-  
-  .project-card p {
-    font-size: 1rem;
-    color: #86868b;
-    margin: 0 20px 20px;
-  }
-  
-  .technologies {
-    margin: 0 20px 20px;
-  }
-  
-  .tech-tag {
-    display: inline-block;
-    background-color: #f5f5f7;
-    color: #1d1d1f;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .view-project {
-    display: inline-block;
-    background-color: #0071e3;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-    margin: 20px 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .view-project:hover {
-    background-color: #0077ed;
-  }
-  
-  
-  
+  padding: 80px 20px;
+  text-align: center; /* Centra il testo */
+  margin-bottom: 80px;
+}
+
+/* Stili per il contenitore dell'animazione */
+.animation-container {
+  margin-bottom: 40px; /* Spazio tra l'animazione e l'header */
+}
+
+/* Stili per la griglia dei progetti */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Stili per la card del progetto */
+.project-card {
+  background-color: var(--background-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+  color: var(--text-color); /* Usa la variabile del colore del testo */
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #86868b;
+  margin: 0 20px 20px;
+}
+
+.technologies {
+  margin: 0 20px 20px;
+}
+
+.tech-tag {
+  display: inline-block;
+  background-color: #f5f5f7;
+  color: var(--text-color); /* Usa la variabile del colore del testo */
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.view-project {
+  display: inline-block;
+  background-color: var(--button-background); /* Usa la variabile del colore del pulsante */
+  color: var(--button-text); /* Usa la variabile del testo del pulsante */
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+.view-project:hover {
+  background-color: #0077ed;
+}
+
+/* Stili generali per il tema giorno */
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #0071e3;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
+}

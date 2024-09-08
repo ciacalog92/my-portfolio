@@ -78,3 +78,17 @@
   background-color: #cc2c24;
   transform: translateY(-2px); /* Leggero sollevamento al passaggio del mouse */
 }
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #0071e3;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
+}

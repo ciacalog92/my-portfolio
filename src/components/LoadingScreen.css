@@ -1,40 +1,120 @@
 /* src/components/LoadingScreen.css */
 .loading-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #ded9d9;
-    color: #1d1d1f;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+  display: flex;
+  flex-direction: column; /* Per posizionare gli elementi in colonna */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  overflow: hidden;
+  background: linear-gradient(45deg, #D16BA5, #86A8E7, #5FFBF1);
+  background-size: 300% 300%;
+  animation: GradientBackground 15s ease infinite;
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%; /* Adatta l'altezza come desideri */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.animation {
+  width: 80%; /* Adatta la larghezza come desideri */
+  height: 80%; /* Adatta l'altezza come desideri */
+}
+
+.loading-screen-content {
+  position: absolute;
+  bottom: 20%; /* Adatta il posizionamento come desideri */
+  text-align: center;
+  z-index: 2; /* Posiziona il contenuto sopra l'animazione */
+}
+
+.loading-screen h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.loading-screen button {
+  background-color: #0071e3;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loading-screen button:hover {
+  background-color: #0077ed;
+  transform: scale(1.05);
+}
+
+/* Media Queries */
+
+/* Schermi piccoli (smartphone in modalità portrait) */
+@media (max-width: 480px) {
+  .loading-screen h1 {
+    font-size: 36px;
   }
-  
+
+  .loading-screen button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 8px;
+  }
+}
+
+/* Schermi medi (tablet in modalità portrait) */
+@media (max-width: 768px) {
+  .loading-screen h1 {
+    font-size: 42px;
+  }
+
+  .loading-screen button {
+    padding: 11px 22px;
+    font-size: 17px;
+    margin: 10px;
+  }
+}
+
+/* Schermi grandi (desktop) */
+@media (min-width: 769px) {
   .loading-screen h1 {
     font-size: 48px;
-    margin-bottom: 20px;
   }
-  
+
   .loading-screen button {
-    background-color: #0071e3;
-    color: white;
     padding: 12px 24px;
-    margin: 20px;
-    border: none;
-    border-radius: 24px;
     font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin: 12px;
   }
-  
-  .loading-screen button:hover {
-    background-color: #0077ed;
-    transform: scale(1.05);
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
   }
-  
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

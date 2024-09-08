@@ -18,7 +18,7 @@ const getCurrentTheme = () => {
 
 function App() {
   const [theme, setTheme] = useState(getCurrentTheme());
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Imposta su false inizialmente
   const [gameMode, setGameMode] = useState(localStorage.getItem('gameMode') || null);
 
   useEffect(() => {
@@ -34,10 +34,8 @@ function App() {
 
   useEffect(() => {
     if (!gameMode) {
-      // Mostra la LoadingScreen solo se non è stato impostato gameMode
       setLoading(true);
     } else {
-      // Altrimenti, imposta loading su false
       setLoading(false);
     }
   }, [gameMode]);
@@ -57,6 +55,11 @@ function App() {
   const handleBackToHome = () => {
     setGameMode('site'); // Reimposta la modalità su 'site'
     localStorage.setItem('gameMode', 'site'); // Salva la scelta in localStorage
+  };
+
+  const handleShowLoadingScreen = () => {
+    setLoading(true); // Mostra la LoadingScreen
+    setGameMode(null); // Reimposta la modalità di gioco su null
   };
 
   return (
@@ -87,6 +90,9 @@ function App() {
             ) : null}
           </>
         )}
+        <button onClick={handleShowLoadingScreen} className="show-loading-button">
+          Mostra la LoadingScreen
+        </button>
       </div>
     </Router>
   );

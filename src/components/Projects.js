@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import projectAnimation from '../animations/project.json'; // Assicurati che il percorso sia corretto
 import './Projects.css'; 
 import memoryMatchImage from '../images/gameplay.png';
-
 
 const projects = [
   {
@@ -19,10 +20,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Memory Match Game", // Aggiungi il gioco nella lista dei progetti
+    title: "Memory Match Game",
     description: "A fun memory matching game built with React",
     image: memoryMatchImage
-
   },
   {
     id: 4,
@@ -34,21 +34,28 @@ const projects = [
 
 function Projects() {
   return (
-    <div className="projects-container">
-      <h2>My Projects</h2>
-      <div className="projects-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="project-card">
-            <img src={project.image} alt={project.title} />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <Link to={`/projects/${project.id}`} className="view-project">View Project</Link>
-          </div>
-        ))}
+    <>
+      {/* Contenitore separato per l'animazione Lottie */}
+      <div className="lottie-animation-container">
+        <Lottie animationData={projectAnimation} loop={true} style={{ width: '100%' }} />
+        <h2>My Projects</h2>
       </div>
-    </div>
+
+      {/* Contenitore dei progetti */}
+      <div className="projects-container">
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <div key={project.id} className="project-card">
+              <img src={project.image} alt={project.title} />
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <Link to={`/projects/${project.id}`} className="view-project">View Project</Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
 export default Projects;
-
