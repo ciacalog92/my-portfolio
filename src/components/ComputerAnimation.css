@@ -1,0 +1,56 @@
+
+/* Container for the content */
+.home-content {
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    justify-content: space-between; /* Space between the heading and animation */
+    background-color: #f0f0f0; /* Background color */
+}
+
+  
+  /* Styles for the heading */
+  .heading {
+    font-size: 2rem; /* Adjust as needed */
+    margin: 0; /* Remove default margins */
+    flex: 1; /* Allow heading to take up available space */
+  }
+  
+  /* Container for the animation */
+  .lottie-container {
+    width: 80%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: flex;
+    justify-content: center; /* Center animation horizontally */
+    align-items: center; /* Center animation vertically */
+    overflow: hidden; /* Ensures the animation doesn't overflow the container */
+  }
+  
+  /* Example keyframes for the animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Additional styles for responsive design */
+  @media (max-width: 768px) {
+    .lottie-container {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lottie-container {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .lottie-container {
+      width: 100%;
+    }
+  }
+  

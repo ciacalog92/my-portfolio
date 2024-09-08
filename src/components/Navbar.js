@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../images/logo.svg';
-import LottieMenuIcon from './LottieMenuIcon'; // Importa il componente Lottie
+import LottieMenuIcon from './LottieMenuIcon';
+import ThemeToggleButton from './ThemeToggleButton'; // Importa il nuovo componente
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,34 +9,30 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          <img src={logo} alt="Logo" className="logo-image" width={60} />
-          <span className="typing-effect">I'm a Web Developer</span>
-        </Link>
+        <ThemeToggleButton /> {/* Usa il bottone animato */}
         <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-          <LottieMenuIcon /> {/* Usa il componente Lottie qui */}
+          <LottieMenuIcon />
         </div>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li className="nav-item">
-            <Link to="/" className="nav-links" onClick={() => setIsOpen(false)}>
+            <a href="/" className="nav-links" onClick={() => setIsOpen(false)}>
               Home
-            </Link>
+            </a>
           </li>
           <li className="nav-item">
-            <Link to="/projects" className="nav-links" onClick={() => setIsOpen(false)}>
+            <a href="/projects" className="nav-links" onClick={() => setIsOpen(false)}>
               Projects
-            </Link>
+            </a>
           </li>
-          {/* Aggiungi i nuovi link per About e Contacts qui */}
           <li className="nav-item">
-            <Link to="/about" className="nav-links" onClick={() => setIsOpen(false)}>
+            <a href="/about" className="nav-links" onClick={() => setIsOpen(false)}>
               About
-            </Link>
+            </a>
           </li>
           <li className="nav-item">
-            <Link to="/contacts" className="nav-links" onClick={() => setIsOpen(false)}>
+            <a href="/contacts" className="nav-links" onClick={() => setIsOpen(false)}>
               Contacts
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
@@ -46,4 +41,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

@@ -1,15 +1,39 @@
-
 .App {
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   padding-top: 80px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Allinea gli elementi in una colonna */
+  align-items: center; /* Centra orizzontalmente */
+  justify-content: center; /* Centra verticalmente */
+}
+
+/* Stili generali per il tema giorno */
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #0071e3;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
 }
 
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li {
@@ -27,34 +51,9 @@ nav ul li {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
-}
-/* Stili generali per il tema giorno */
-.light-mode {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --button-background: #0071e3;
-  --button-text: #ffffff;
-}
-
-/* Stili generali per il tema notte */
-.dark-mode {
-  --background-color: #000000;
-  --text-color: #ffffff;
-  --button-background: #444;
-  --button-text: #ffffff;
-}
-
-.App {
   background-color: var(--background-color);
   color: var(--text-color);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: flex;
-  flex-direction: column; /* Allinea gli elementi in una colonna */
-  align-items: center; /* Centra orizzontalmente */
-  justify-content: center; /* Centra verticalmente */
 }
-
 
 /* Stili per i bottoni */
 button {
@@ -68,26 +67,6 @@ button {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Bottone hover */
 button:hover {
   opacity: 0.8;
 }
-/* Default light theme */
-.App.light {
-  background-color: #ffffff;
-  color: #1d1d1f;
-}
-
-.App.light .navbar {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Dark theme */
-.App.dark {
-  background-color: #1d1d1f;
-  color: #ffffff;
-}
-
-
-
-/* Altri stili specifici per temi */
