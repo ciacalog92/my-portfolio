@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   padding-top: 80px;
@@ -12,8 +11,11 @@
   flex-direction: column; /* Allinea gli elementi in una colonna */
   align-items: center; /* Centra orizzontalmente */
   justify-content: center; /* Centra verticalmente */
+  box-sizing: border-box; /* Include padding e border nella larghezza totale */
+
 }
 
+/* Stili per il tema giorno */
 /* Stili generali per il tema giorno */
 .light-mode {
   --background-color: #ffffff;

@@ -1,10 +1,31 @@
+/* index.css */
+
+/* Impostazioni globali per il body */
+body {
+ 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Evita lo scroll orizzontale indesiderato */
+}
+
+/* Stili per l'app */
+
+
+/* Home.css */
+
+/* Stili per la Home */
 .Home {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100vw; /* Imposta la larghezza al 100% del viewport width */
   padding: 40px 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   background-color: #ffffff;
   color: #1d1d1f;
+  box-sizing: border-box; /* Include padding nella larghezza totale */
 }
 
 .Home h1 {
@@ -19,14 +40,11 @@
   margin-bottom: 40px;
 }
 
-
-
+/* Stili per il profilo */
 .profile-header {
   text-align: center;
   margin-bottom: 40px;
 }
-
-
 
 .profile-header h1 {
   font-size: 36px;
@@ -39,12 +57,16 @@
   color: #86868b;
 }
 
+/* Stili per il form di contatto */
 .contact-form {
-  margin-top: 40px;
+  width: 100%; /* Imposta la larghezza al 100% del contenitore */
+  max-width: 600px; /* Imposta una larghezza massima per il form */
+  margin: 0 auto; /* Centra orizzontalmente */
   background-color: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding e border nella larghezza totale */
 }
 
 .contact-form input,
@@ -78,6 +100,7 @@
   transform: scale(1.05);
 }
 
+/* Stili per le icone social */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -106,95 +129,13 @@
   max-width: 100%;
 }
 
-/* Per i dispositivi con schermi piccoli */
-@media (max-width: 760px) {
-  .chatbot-container {
-    bottom: 5px;
-    right: 5px;
-  }
-
-  .Home {
-    padding: 20px 10px;
-  }
-
-  .Home h1 {
-    font-size: 36px;
-  }
-
-  .Home > p {
-    font-size: 18px;
-  }
-
-  .profile-header h1 {
-    font-size: 28px;
-  }
-
-  .profile-header p {
-    font-size: 18px;
-  }
-
-  .contact-form {
-    padding: 20px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 16px;
-  }
-
-  .contact-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-
-  .social-icons a {
-    font-size: 20px;
-  }
-}
-
-/* Sezione per l'H1 e l'animazione */
-.header-section {
-  display: flex;
-  align-items: center; /* Allinea verticalmente */
-  justify-content: center; /* Centra orizzontalmente */
-  margin-bottom: 40px;
-}
-
-.header-section h1 {
-  margin-right: 20px; /* Spazio tra l'H1 e l'animazione */
-  font-size: 30px;
-  font-weight: 700;
-}
-
-/* Aggiungi eventuali stili personalizzati per l'animazione */
-.header-section .lottie-container {
-  width: 400px; /* Regola la dimensione dell'animazione */
-  height: auto;
-}
-
-/* Responsiveness: per schermi più piccoli */
-@media (max-width: 760px) {
-  .header-section {
-    flex-direction: column; /* Cambia layout in verticale per schermi piccoli */
-    text-align: center;
-  }
-
-  .header-section h1 {
-    margin-right: 0; /* Rimuovi lo spazio laterale per layout in verticale */
-    font-size: 36px;
-  }
-
-  .header-section .lottie-container {
-    width: 250px; /* Riduci la dimensione dell'animazione su schermi piccoli */
-  }
-}
-/* Home.css */
-
 /* Sezione header esistente */
 .header-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100vw; /* Imposta la larghezza al 100% del viewport width */
+  box-sizing: border-box; /* Include padding e border nella larghezza totale */
   margin-bottom: 40px;
 }
 
@@ -244,4 +185,64 @@
 
 .card {
   animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsiveness: per schermi più piccoli */
+@media (max-width: 760px) {
+  .chatbot-container {
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .Home {
+    padding: 20px 10px;
+  }
+
+  .Home h1 {
+    font-size: 36px;
+  }
+
+  .Home > p {
+    font-size: 18px;
+  }
+
+  .profile-header h1 {
+    font-size: 28px;
+  }
+
+  .profile-header p {
+    font-size: 18px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+
+  .header-section {
+    flex-direction: column; /* Cambia layout in verticale per schermi piccoli */
+    text-align: center;
+  }
+
+  .header-section h1 {
+    margin-right: 0; /* Rimuovi lo spazio laterale per layout in verticale */
+    font-size: 36px;
+  }
+
+  .header-section .lottie-container {
+    width: 250px; /* Riduci la dimensione dell'animazione su schermi piccoli */
+  }
 }
