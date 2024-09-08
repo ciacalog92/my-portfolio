@@ -12,7 +12,7 @@ function About() {
     <div className="about">
       <div className="profile-header">
         <img src={process.env.PUBLIC_URL + '/profile-pic.jpg'} alt="Calogero Ciaccio" className="profile-pic" />
-        <h1>Calogero Ciaccio</h1>
+        <h1 className="name-gradient" >Calogero Ciaccio</h1>
         <p>Junior Front-End Developer</p>
       </div>
 
