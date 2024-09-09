@@ -3,6 +3,7 @@ import React from 'react';
 import Lottie from 'lottie-react'; // Assicurati che 'lottie-react' sia installato
 import razzoAnimation from '../animations/razzo.json'; // Importa il file JSON
 import './LoadingScreen.css';
+import Heart from '../images/CP_HEART.gif';
 
 function LoadingScreen({ onEnter, onPlay }) {
   return (
@@ -15,7 +16,11 @@ function LoadingScreen({ onEnter, onPlay }) {
         <button onClick={onEnter}>Entra nel sito</button>
         <button onClick={onPlay}>Gioca</button>
       </div>
+      <div className="heart-container">
+        <img src={Heart} alt="Heart" className="heart" />
+      </div>
     </div>
+
   );
 }
 

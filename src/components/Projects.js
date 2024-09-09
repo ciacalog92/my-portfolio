@@ -4,13 +4,14 @@ import Lottie from 'lottie-react';
 import projectAnimation from '../animations/project.json'; // Assicurati che il percorso sia corretto
 import './Projects.css'; 
 import memoryMatchImage from '../images/gameplay.png';
+import shop from '../images/shop.png'
 
 const projects = [
   {
     id: 1,
     title: "E-commerce Website",
     description: "A fully responsive e-commerce website built with React and Node.js",
-    image: "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: shop
   },
   {
     id: 2,
