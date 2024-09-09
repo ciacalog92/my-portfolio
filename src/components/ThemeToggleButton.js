@@ -13,7 +13,7 @@ const ThemeToggleButton = () => {
         animationData={switchAnimation} 
         loop={false}
         play
-        style={{ width: 50 , height: 50 }}
+        style={{ width: 60 , height: 60 }}
         // Passa una proprietà di animazione condizionale per cambiare l'animazione basata sulla modalità
         rendererSettings={{
           preserveAspectRatio: 'xMidYMid meet',

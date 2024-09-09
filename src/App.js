@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -52,10 +52,7 @@ function App() {
     localStorage.setItem('gameMode', 'game'); // Salva la scelta in localStorage
   };
 
-  const handleBackToHome = () => {
-    setGameMode('site'); // Reimposta la modalità su 'site'
-    localStorage.setItem('gameMode', 'site'); // Salva la scelta in localStorage
-  };
+
 
   const handleShowLoadingScreen = () => {
     setLoading(true); // Mostra la LoadingScreen
@@ -69,37 +66,26 @@ function App() {
           <LoadingScreen onEnter={handleEnter} onPlay={handlePlay} />
         ) : (
           <>
+            <Navbar handleShowLoadingScreen={handleShowLoadingScreen} />
             {gameMode === 'site' ? (
-              <>
-                <Navbar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/projects/:id" element={<ProjectDetail />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contacts" element={<Contacts />} />
-                </Routes>
-              </>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:id" element={<ProjectDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contacts" element={<Contacts />} />
+              </Routes>
             ) : gameMode === 'game' ? (
-              <>
-                <MemoryMatchGame />
-                <button onClick={handleBackToHome} className="back-to-home-button">
-                  Torna alla Home
-                </button>
-              </>
+              <MemoryMatchGame />
             ) : null}
           </>
         )}
-        <button onClick={handleShowLoadingScreen} className="show-loading-button">
-          Mostra la LoadingScreen
-        </button>
       </div>
     </Router>
   );
 }
 
 export default App;
-
 
 
 

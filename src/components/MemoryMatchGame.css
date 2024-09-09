@@ -102,20 +102,43 @@
   }
   
   /* Media queries per dispositivi mobili */
-  @media (max-width: 768px) {
-    .memory-grid {
-      grid-template-columns: repeat(4, 1fr); /* Mantiene 4 colonne su schermi piccoli */
-    }
-  
-    .memory-card {
-      padding-top: 100%; /* Mantiene il rapporto di aspetto 1:1 */
-    }
-  
-    .card-front,
-    .card-back {
-      font-size: 2.5rem; /* Font più piccolo per schermi più piccoli */
-    }
+ /* Media queries per dispositivi mobili */
+@media (max-width: 768px) {
+  .memory-game {
+    padding: 40px; /* Riduci il padding per adattarlo a schermi più piccoli */
   }
+
+  .memory-grid {
+    grid-template-columns: repeat(4, 1fr); /* Mostra 2 colonne su schermi piccoli */
+  }
+
+  .memory-card {
+    padding-top: 100%; /* Mantiene il rapporto di aspetto 1:1 */
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 1.5rem; /* Font più piccolo per schermi più piccoli */
+  }
+
+  .restart-button {
+    padding: 10px 20px; /* Riduci il padding per bottone su schermi piccoli */
+    font-size: 16px; /* Font più piccolo per schermi più piccoli */
+  }
+
+  .game-title-image {
+    width: 100%;
+    max-width: 100%; /* Adatta l'immagine al 100% della larghezza del contenitore */
+    margin: 0 auto 10px auto; /* Riduci il margine inferiore per schermi piccoli */
+  }
+
+  .back-button {
+    margin: 20px auto; /* Margini automatici orizzontalmente per centrare */
+    padding: 8px 16px; /* Riduci il padding per bottone su schermi piccoli */
+    font-size: 14px; /* Font più piccolo per schermi più piccoli */
+  }
+}
+
   
   /* Media queries per schermi più grandi */
   @media (min-width: 1200px) {

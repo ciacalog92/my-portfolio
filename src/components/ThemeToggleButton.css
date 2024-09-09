@@ -1,10 +1,15 @@
+/* Stile del contenitore per centrare il pulsante */
+.theme-toggle-container {
+  text-align: center; /* Allinea al centro orizzontalmente */
+  padding: 20px;
+}
+
+/* Stile esistente per il pulsante */
 .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-  
+  background: transparent;
+  color: var(--button-background);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

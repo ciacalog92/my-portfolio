@@ -10,23 +10,29 @@ function Home() {
     <div className="Home">
       {/* Sezione header con animazione */}
       <div className="header-section">
-        <h1>FrontEnd Developer</h1>
+        <h1>Web Developer & <br></br>Web Design</h1>
         <ComputerAnimation />
       </div>
 
       {/* Sezione delle card */}
       <div className="card-container">
         <div className="card">
-          <h3>Card Title 1</h3>
-          <p>Some content for the first card.</p>
+          <h3>Sito Web Statico</h3>
+          <p>Realizzazione di siti web statici e responsive fino a 5 pagine, ideali per presentare la tua attività online.</p>
+          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript</p>
+          <button className="discover-button">Scopri</button>
         </div>
         <div className="card">
-          <h3>Card Title 2</h3>
-          <p>Some content for the second card.</p>
+          <h3>Sito Web Dinamico</h3>
+          <p>Creazione di siti web dinamici con CMS (WordPress, Joomla), inclusi SEO avanzato e ottimizzazione delle prestazioni.</p>
+          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript, PHP, MySQL</p>
+          <button className="discover-button">Scopri</button>
         </div>
         <div className="card">
-          <h3>Card Title 3</h3>
-          <p>Some content for the third card.</p>
+          <h3>Soluzioni E-Commerce</h3>
+          <p>Progettazione e sviluppo di piattaforme e-commerce personalizzate, con integrazione di CRM e strumenti di automazione.</p>
+          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+          <button className="discover-button">Scopri</button>
         </div>
       </div>
 
