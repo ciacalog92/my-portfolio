@@ -7,34 +7,30 @@ function ObstacleGame() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const isPortrait = window.innerHeight > window.innerWidth;
 
-    // Imposta dimensioni del canvas
-    if (isPortrait) {
-      canvas.width = 360;
-      canvas.height = 640;
-    } else {
-      canvas.width = 800;
-      canvas.height = 400;
-    }
+    const updateCanvasSize = () => {
+      const isPortrait = window.innerHeight > window.innerWidth;
+      canvas.width = isPortrait ? 360 : 800;
+      canvas.height = isPortrait ? 640 : 400;
+      return isPortrait;
+    };
 
-    // Immagini di sfondo
+    const isPortrait = updateCanvasSize();
+
     const backgroundImage = new Image();
     backgroundImage.src = isPortrait
       ? require('../images/sfondoVerticale.png') // 1080x1920
       : require('../images/sfondogioco.png'); // 800x400
 
-    // Suoni
     const jumpSound = new Audio(require('../audio/jump.mp3'));
     const collisionSound = new Audio(require('../audio/collision.mp3'));
 
-    // Variabili del giocatore
     const playerImage = new Image();
     playerImage.src = require('../images/player.png');
 
     const player = {
       x: 50,
-      y: canvas.height - 150, // Aggiustato per altezza canvas
+      y: canvas.height - 150,
       width: isPortrait ? 50 : 80,
       height: isPortrait ? 70 : 100,
       velocityY: 0,
@@ -61,7 +57,6 @@ function ObstacleGame() {
       }
     };
 
-    // Variabili degli ostacoli
     const obstacleImage = new Image();
     obstacleImage.src = require('../images/obstacle.png');
 
@@ -142,25 +137,15 @@ function ObstacleGame() {
     canvas.addEventListener('touchstart', handleTouchStart);
 
     function resizeCanvas() {
-      const isPortrait = window.innerHeight > window.innerWidth;
-      if (isPortrait) {
-        canvas.width = 360;
-        canvas.height = 640;
-        player.width = 50;
-        player.height = 70;
-      } else {
-        canvas.width = 800;
-        canvas.height = 400;
-        player.width = 80;
-        player.height = 100;
-      }
+      const isPortrait = updateCanvasSize();
+      player.width = isPortrait ? 50 : 80;
+      player.height = isPortrait ? 70 : 100;
       backgroundImage.src = isPortrait
         ? require('../images/sfondoVerticale.png')
         : require('../images/sfondogioco.png');
     }
 
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
 
     let gameInterval;
     let obstacleInterval;
@@ -206,14 +191,17 @@ function ObstacleGame() {
       clearInterval(obstacleInterval);
       window.removeEventListener('keydown', handleTouchStart);
       canvas.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
   function toggleFullscreen() {
     if (document.fullscreenElement) {
       document.exitFullscreen();
+      setIsFullscreen(false);
     } else {
       document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
     }
   }
 
@@ -224,7 +212,7 @@ function ObstacleGame() {
       <p id="score">Punteggio: 0</p>
       <p id="highScore">Punteggio massimo: 0</p>
       <button onClick={toggleFullscreen}>
-        {document.fullscreenElement ? 'Esci dalla modalità schermo intero' : 'Vai a schermo intero'}
+        {isFullscreen ? 'Esci dalla modalità schermo intero' : 'Vai a schermo intero'}
       </button>
     </>
   );
