@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./MiniEcommerce.css";
 import { TiShoppingCart } from "react-icons/ti";
 import tShirt from "../images/t-shirt2.png";
@@ -34,43 +34,74 @@ const MiniEcommerce = () => {
   const [cart, setCart] = useState([]);
   const [isCartVisible, setCartVisible] = useState(false);
   const [selectedSize, setSelectedSize] = useState("");
+  const [animatingProductId, setAnimatingProductId] = useState(null); // Stato per il prodotto in animazione
+  const productImageRefs = useRef({}); // Ref per le immagini dei prodotti
+  const cartIconRef = useRef(null); // Ref per l'icona del carrello
 
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
   };
+
   const addToCart = (product) => {
-    const productInCart = cart.find((item) => item.id === product.id);
+    if (!selectedSize) {
+      alert("Seleziona una taglia per continuare!");
+      return;
+    }
+
+    const productInCart = cart.find(
+      (item) => item.id === product.id && item.size === selectedSize
+    );
 
     if (productInCart) {
-      // Se il prodotto è già nel carrello, aumenta la quantità
       setCart(
         cart.map((item) =>
-          item.id === product.id
+          item.id === product.id && item.size === selectedSize
             ? { ...item, quantity: item.quantity + 1 }
             : item
         )
       );
     } else {
-      // Aggiungi il prodotto con una quantità iniziale di 1
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: 1, size: selectedSize }]);
     }
+
+    // Imposta l'ID del prodotto che si sta animando
+    setAnimatingProductId(product.id);
+
+    const cartIcon = cartIconRef.current.getBoundingClientRect();
+    const productImage = productImageRefs.current[product.id].getBoundingClientRect();
+
+    productImageRefs.current[product.id].style.setProperty(
+      "--moveX",
+      `${cartIcon.left - productImage.left}px`
+    );
+    productImageRefs.current[product.id].style.setProperty(
+      "--moveY",
+      `${cartIcon.top - productImage.top}px`
+    );
+
+    // Avvia animazione per il prodotto selezionato
+    setTimeout(() => {
+      setAnimatingProductId(null); // Reset dell'ID dopo l'animazione
+    }, 1000);
   };
 
-  const removeFromCart = (productId) => {
-    const productInCart = cart.find((item) => item.id === productId);
+  const removeFromCart = (productId, size) => {
+    const productInCart = cart.find(
+      (item) => item.id === productId && item.size === size
+    );
 
     if (productInCart.quantity > 1) {
-      // Riduci la quantità se è maggiore di 1
       setCart(
         cart.map((item) =>
-          item.id === productId
+          item.id === productId && item.size === size
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
       );
     } else {
-      // Rimuovi completamente il prodotto se la quantità è 1
-      setCart(cart.filter((item) => item.id !== productId));
+      setCart(
+        cart.filter((item) => item.id !== productId || item.size !== size)
+      );
     }
   };
 
@@ -85,8 +116,12 @@ const MiniEcommerce = () => {
         {products.map((product) => (
           <div key={product.id} className="product">
             {product.sizes && (
-              <select className="select-size" value={selectedSize} onChange={handleSizeChange}>
-                <option  value="">Seleziona una taglia</option>
+              <select
+                className="select-size"
+                value={selectedSize}
+                onChange={handleSizeChange}
+              >
+                <option value="">Seleziona una taglia</option>
                 {product.sizes.map((size) => (
                   <option key={size} value={size}>
                     {size}
@@ -94,7 +129,12 @@ const MiniEcommerce = () => {
                 ))}
               </select>
             )}
-            <img src={product.image} alt={product.name} />
+            <img
+              src={product.image}
+              alt={product.name}
+              ref={(el) => (productImageRefs.current[product.id] = el)} // Associa il ref all'immagine corretta
+              className={animatingProductId === product.id ? "fly-to-cart" : ""} // Anima solo l'immagine selezionata
+            />
             <h3>{product.name}</h3>
             <p>${product.price.toFixed(2)}</p>
             <button onClick={() => addToCart(product)}>Add to Cart</button>
@@ -104,7 +144,7 @@ const MiniEcommerce = () => {
 
       {/* Button to toggle the cart visibility */}
       <div className="cart-icon-container">
-        <button className="show-cart" onClick={() => setCartVisible(true)}>
+        <button className="show-cart" onClick={() => setCartVisible(true)} ref={cartIconRef}>
           <TiShoppingCart />
           {cart.length > 0 && (
             <span className="cart-count">
@@ -125,10 +165,11 @@ const MiniEcommerce = () => {
               cart.map((item, index) => (
                 <div key={`${item.id}-${index}`} className="cart-item">
                   <span>
-                    {item.name} - ${item.price.toFixed(2)} (x{item.quantity})
+                    {item.name} (Taglia: {item.size}) - $
+                    {item.price.toFixed(2)} (x{item.quantity})
                   </span>
-                  <button onClick={() => removeFromCart(item.id)}>
-                  <CiCircleRemove />
+                  <button onClick={() => removeFromCart(item.id, item.size)}>
+                    <CiCircleRemove />
                   </button>
                 </div>
               ))

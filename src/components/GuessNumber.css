@@ -1,48 +1,83 @@
+.project-detail {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 32px; /* Rounded corners */
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6); /* Soft shadow */
+}
+
+.number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .guess-number {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.guess-number input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.guess-number button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.guess-number button:hover {
+  background-color: #0077ed;
+}
+
+.message {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .guess-number {
+    max-width: 90%; /* Riduci il max-width per adattarsi a schermi più piccoli */
   }
-  
+
   .guess-number input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
+    font-size: 14px; /* Riduci la dimensione del testo */
+    padding: 8px;
   }
-  
+
   .guess-number button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    background-color: #0071e3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 14px; /* Riduci la dimensione del pulsante */
+    padding: 8px 16px;
   }
-  
-  .guess-number button:hover {
-    background-color: #0077ed;
-  }
-  
-  .message {
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  
-  .light-mode {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --button-background: #0071e3;
-    --button-text: #ffffff;
-  }
-  
-  /* Stili generali per il tema notte */
-  .dark-mode {
-    --background-color: #000000;
-    --text-color: #ffffff;
-    --button-background: #444;
-    --button-text: #ffffff;
-  }
+}
+
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #0071e3;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
+}

@@ -6,7 +6,7 @@ import './ComputerAnimation.css'
 const ComputerAnimation = () => {
   return (
     <div className="lottie-container">
-      <Lottie animationData={computerAnimation} loop={true} />
+      <Lottie animationData={computerAnimation} loop={true}/>
     </div>
   );
 };

@@ -1,48 +1,77 @@
-// Home.js
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Add useRef here
 import './Home.css';
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import ChatBot from './ChatBot'; // Importa il componente ChatBot
-import ComputerAnimation from './ComputerAnimation'; // Importa il componente ComputerAnimation
+import ChatBot from './ChatBot'; // Import the ChatBot component
+import ComputerAnimation from './ComputerAnimation'; // Import the ComputerAnimation component
 
 function Home() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const cardContainerRef = useRef(null);
+
+  useEffect(() => {
+    const container = cardContainerRef.current;
+    const handleScroll = () => {
+      const index = Math.round(container.scrollLeft / container.offsetWidth);
+      setCurrentPage(index);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleDotClick = (index) => {
+    const container = cardContainerRef.current;
+    container.scrollTo({
+      left: index * container.offsetWidth,
+      behavior: 'smooth'
+    });
+    setCurrentPage(index);
+  };
+
   return (
     <div className="Home">
-      {/* Sezione header con animazione */}
-      <div className="header-section">
-        <h1>Web Developer & <br></br>Web Design</h1>
-        <ComputerAnimation />
-      </div>
-
-      {/* Sezione delle card */}
-      <div className="card-container">
+      
+      <ComputerAnimation />
+      {/* Card section */}
+      <div className="card-container" ref={cardContainerRef}>
         <div className="card">
-          <h3>Sito Web Statico</h3>
-          <p>Realizzazione di siti web statici e responsive fino a 5 pagine, ideali per presentare la tua attività online.</p>
-          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript</p>
-          <button className="discover-button">Scopri</button>
+          <h3>STATIC WEBSITE</h3>
+          <p>Creation of static and responsive websites with up to 5 pages, ideal for presenting your business online.</p>
+          <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
+          <button className="discover-button">Discover</button>
         </div>
         <div className="card">
-          <h3>Sito Web Dinamico</h3>
-          <p>Creazione di siti web dinamici con CMS (WordPress, Joomla), inclusi SEO avanzato e ottimizzazione delle prestazioni.</p>
-          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript, PHP, MySQL</p>
-          <button className="discover-button">Scopri</button>
+          <h3>Dynamic Website</h3>
+          <p>Creation of dynamic websites with CMS (WordPress, Joomla), including advanced SEO and performance optimization.</p>
+          <p className="tech-stack">Technologies: HTML, CSS, JavaScript, PHP, MySQL</p>
+          <button className="discover-button">Discover</button>
         </div>
         <div className="card">
-          <h3>Soluzioni E-Commerce</h3>
-          <p>Progettazione e sviluppo di piattaforme e-commerce personalizzate, con integrazione di CRM e strumenti di automazione.</p>
-          <p className="tech-stack">Tecnologie: HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
-          <button className="discover-button">Scopri</button>
+          <h3>E-Commerce Solutions</h3>
+          <p>Design and development of customized e-commerce platforms, with CRM integration and automation tools.</p>
+          <p className="tech-stack">Technologies: HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+          <button className="discover-button">Discover</button>
         </div>
       </div>
 
-      {/* Form di contatto */}
+      {/* Navigation dots */}
+      <div className="pagination">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div
+            key={index}
+            className={`pagination-dot ${currentPage === index ? 'active' : ''}`}
+            onClick={() => handleDotClick(index)}
+          />
+        ))}
+      </div>
+
+      {/* Contact form */}
       <form className="contact-form">
-        <h2>Contattami</h2>
+        <h2>Contact Me</h2>
         <input
           type="text"
           name="name"
-          placeholder="Nome"
+          placeholder="Name"
           required
         />
         <input
@@ -53,13 +82,13 @@ function Home() {
         />
         <textarea
           name="message"
-          placeholder="Messaggio"
+          placeholder="Message"
           required
         />
-        <button type="submit">Invia</button>
+        <button type="submit">Send</button>
       </form>
 
-      {/* Icone social */}
+      {/* Social icons */}
       <div className="social-icons">
         <a href="https://wa.me/393312997797" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp />
@@ -72,7 +101,7 @@ function Home() {
         </a>
       </div>
 
-      {/* Posizione ChatBot in fondo a destra */}
+      {/* ChatBot positioned at the bottom right */}
       <div className="chatbot-container">
         <ChatBot />
       </div>

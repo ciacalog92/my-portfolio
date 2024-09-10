@@ -6,7 +6,7 @@
 
 .products {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* Modificato per migliorare l'allineamento */
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -16,11 +16,11 @@
   margin: 10px;
   padding: 1rem;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 32px; /* Rounded corners */
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6); /* Soft shadow */
   text-align: center;
   background-color: #f9f9f9;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: var(--background-color); /* Usa la variabile del tema */
   color: var(--text-color); /* Usa la variabile del tema */
 }
@@ -145,6 +145,7 @@ button {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+
 /* Stile generale per il selettore di taglie */
 .select-size {
   width: 100%;
@@ -171,6 +172,23 @@ button {
   box-shadow: 0 0 5px rgba(0, 113, 227, 0.5);
 }
 
+.fly-to-cart {
+  animation: flyToCart 1s ease-in-out forwards;
+  position: relative;
+  z-index: 100;
+}
+
+@keyframes flyToCart {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--moveX), var(--moveY)) scale(0.2);
+    opacity: 0;
+  }
+}
+
 /* Cambia colore e bordo nella modalità scura */
 .dark-mode .select-size {
   background-color: #333;
@@ -181,7 +199,6 @@ button {
 .dark-mode .select-size:hover {
   border-color: #0071e3;
 }
-
 
 /* Tema chiaro */
 .light-mode {
@@ -197,4 +214,49 @@ button {
   --text-color: #ffffff;
   --button-background: #444;
   --button-text: #ffffff;
+}
+
+/* Media Queries */
+
+/* Per schermi più piccoli di 768px */
+@media (max-width: 768px) {
+  .products {
+    justify-content: center; /* Mantieni le card centrate */
+    gap: 1.5rem;
+  }
+
+  .product {
+    width: 150px; /* Riduce la dimensione delle card su schermi piccoli */
+    padding: 1rem;
+  }
+
+  .select-size {
+    font-size: 12px; /* Riduci la dimensione del testo del selettore di taglie */
+  }
+
+  .product img {
+    height: 150px; /* Riduce l'altezza dell'immagine */
+  }
+  .modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+/* Per schermi più piccoli di 480px */
+@media (max-width: 480px) {
+  .product {
+    width: 120px; /* Riduce ulteriormente la dimensione delle card */
+  }
+
+  .product img {
+    height: 120px; /* Riduce ulteriormente l'altezza dell'immagine */
+  }
+
+  .select-size {
+    font-size: 14px; /* Riduci la dimensione del testo del selettore di taglie */
+  }
 }

@@ -6,6 +6,7 @@ import { GiAbstract006 } from "react-icons/gi";
 
 function Navbar({ handleShowLoadingScreen }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0); // Variabile per il conteggio dei clic
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -33,13 +34,31 @@ function Navbar({ handleShowLoadingScreen }) {
     };
   }, []);
 
+  const handleIconClick = (event) => {
+    event.preventDefault(); // Prevenire l'azione predefinita del link
+    setClickCount(prevCount => {
+      const newCount = prevCount + 1;
+
+      if (newCount === 10) {
+        handleShowLoadingScreen(); // Mostra la LoadingScreen quando si raggiungono 5 clic
+        return 0; // Resetta il contatore dei clic
+      }
+
+      return newCount;
+    });
+  };
+
+  // Aggiungi il valore di clickCount per evitare l'avviso
+  useEffect(() => {
+    console.log(`Click count: ${clickCount}`);
+  }, [clickCount]);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href onClick={handleShowLoadingScreen} className="show-loading-button" >
-        <GiAbstract006 />
-
-        </a>
+        <div onClick={handleIconClick} className="show-loading-button" type="button">
+          <GiAbstract006 />
+        </div>
         <ThemeToggleButton /> {/* Usa il bottone animato */}
         <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
           <LottieMenuIcon />
