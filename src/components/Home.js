@@ -31,7 +31,7 @@ function Home() {
   return (
     <div className="Home">
       
-      <ComputerAnimation />
+      <ComputerAnimation className="computer-animation"/>
       {/* Card section */}
       <div className="card-container" ref={cardContainerRef}>
         <div className="card">
@@ -64,29 +64,6 @@ function Home() {
           />
         ))}
       </div>
-
-      {/* Contact form */}
-      <form className="contact-form">
-        <h2>Contact Me</h2>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Message"
-          required
-        />
-        <button type="submit">Send</button>
-      </form>
 
       {/* Social icons */}
       <div className="social-icons">

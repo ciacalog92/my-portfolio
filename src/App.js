@@ -7,8 +7,9 @@ import Projects from './components/Projects';
 import ProjectDetail from './components/ProjectDetail';
 import About from './components/About';
 import Contacts from './components/Contacts';
-import LoadingScreen from './components/LoadingScreen'; // Importa il componente LoadingScreen
-import MemoryMatchGame from './components/MemoryMatchGame'; // Importa il componente MemoryMatchGame
+import LoadingScreen from './components/LoadingScreen';
+import MemoryMatchGame from './components/MemoryMatchGame';
+import ObstacleGame from './components/ObstacleGame'; // Importa il gioco a ostacoli
 import './App.css';
 
 const getCurrentTheme = () => {
@@ -18,7 +19,7 @@ const getCurrentTheme = () => {
 
 function App() {
   const [theme, setTheme] = useState(getCurrentTheme());
-  const [loading, setLoading] = useState(false); // Imposta su false inizialmente
+  const [loading, setLoading] = useState(false);
   const [gameMode, setGameMode] = useState(localStorage.getItem('gameMode') || null);
 
   useEffect(() => {
@@ -43,19 +44,17 @@ function App() {
   const handleEnter = () => {
     setLoading(false);
     setGameMode('site'); // Imposta la modalità sito
-    localStorage.setItem('gameMode', 'site'); // Salva la scelta in localStorage
+    localStorage.setItem('gameMode', 'site'); // Salva la modalità in localStorage
   };
 
   const handlePlay = () => {
     setLoading(false);
     setGameMode('game'); // Imposta la modalità gioco
-    localStorage.setItem('gameMode', 'game'); // Salva la scelta in localStorage
+    localStorage.setItem('gameMode', 'game'); // Salva la modalità in localStorage
   };
 
-
-
   const handleShowLoadingScreen = () => {
-    setLoading(true); // Mostra la LoadingScreen
+    setLoading(true); // Mostra la schermata di caricamento
     setGameMode(null); // Reimposta la modalità di gioco su null
   };
 
@@ -74,6 +73,7 @@ function App() {
                 <Route path="/projects/:id" element={<ProjectDetail />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contacts" element={<Contacts />} />
+                <Route path="/obstacle-game" element={<ObstacleGame />} /> {/* Nuovo percorso per il gioco */}
               </Routes>
             ) : gameMode === 'game' ? (
               <MemoryMatchGame />
@@ -86,6 +86,3 @@ function App() {
 }
 
 export default App;
-
-
-

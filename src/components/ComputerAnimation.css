@@ -1,57 +1,59 @@
-
 /* Container for the content */
 .home-content {
-    display: flex;
-    align-items: center; /* Aligns items vertically centered */
-    justify-content: space-between; /* Space between the heading and animation */
-    background-color: #f0f0f0; /* Background color */
+  display: flex;
+  align-items: center; /* Aligns items vertically centered */
+  justify-content: center; /* Center items horizontally */
+  background-color: #f0f0f0; /* Background color */
+  padding: 20px; /* Add padding to ensure content doesn't touch the edges */
+  height: 100vh; /* Ensure it takes full viewport height for centering */
+  box-sizing: border-box; /* Include padding in height calculation */
+  text-align: center; /* Center text inside the container */
 }
 
-  
-  /* Styles for the heading */
-  .heading {
-    font-size: 2rem; /* Adjust as needed */
-    margin: 0; /* Remove default margins */
-    flex: 1; /* Allow heading to take up available space */
+/* Styles for the heading */
+.heading {
+  font-size: 2rem; /* Adjust as needed */
+  margin: 0; /* Remove default margins */
+  flex: 1; /* Allow heading to take up available space */
+}
+
+/* Container for the animation */
+.lottie-container {
+  width: 50%; /* Adjust width as needed */
+  max-width: 600px; /* Limit maximum width to ensure it's not too large */
+  height: auto; /* Maintain aspect ratio */
+  display: flex;
+  justify-content: center; /* Center animation horizontally */
+  align-items: center; /* Center animation vertically */
+  overflow: hidden; /* Ensures the animation doesn't overflow the container */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Example keyframes for the animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  /* Container for the animation */
+  to {
+    opacity: 1;
+  }
+}
+
+/* Additional styles for responsive design */
+@media (max-width: 768px) {
   .lottie-container {
-    width: 100%;
-    height: 100%; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: flex;
-    justify-content: center; /* Center animation horizontally */
-    align-items: center; /* Center animation vertically */
-    overflow: hidden; /* Ensures the animation doesn't overflow the container */
+    width: 70%; /* Adjust width for tablets */
   }
-  
-  /* Example keyframes for the animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+}
+
+@media (max-width: 480px) {
+  .lottie-container {
+    width: 90%; /* Adjust width for small screens */
   }
-  
-  /* Additional styles for responsive design */
-  @media (max-width: 768px) {
-    .lottie-container {
-      width: 100%;
-    }
+}
+
+@media (max-width: 320px) {
+  .lottie-container {
+    width: 100%; /* Full width for very small screens */
   }
-  
-  @media (max-width: 480px) {
-    .lottie-container {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 320px) {
-    .lottie-container {
-      width: 100%;
-    }
-  }
-  
+}

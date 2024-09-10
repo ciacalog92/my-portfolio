@@ -1,10 +1,11 @@
+// src/components/Projects.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import projectAnimation from '../animations/project.json'; // Assicurati che il percorso sia corretto
 import './Projects.css'; 
 import memoryMatchImage from '../images/gameplay.png';
-import shop from '../images/shop.png'
+import shop from '../images/shop.png';
 
 const projects = [
   {
@@ -27,6 +28,12 @@ const projects = [
   },
   {
     id: 4,
+    title: "Obstacle Game",
+    description: "A thrilling obstacle game built with React",
+    image: "https://via.placeholder.com/300" // Aggiungi un'immagine di anteprima per il gioco
+  },
+  {
+    id: 5,
     title: "To Do List",
     description: "A full-stack task management application with user authentication",
     image: "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -50,7 +57,10 @@ function Projects() {
               <img src={project.image} alt={project.title} />
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <Link to={`/projects/${project.id}`} className="view-project">View Project</Link>
+              <Link to={`/projects/${project.id}`} className="view-project">
+                View Project
+              </Link>
+              {/* Mostra il componente del gioco solo se il progetto è "Obstacle Game" */}
             </div>
           ))}
         </div>
@@ -60,3 +70,4 @@ function Projects() {
 }
 
 export default Projects;
+

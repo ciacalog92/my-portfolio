@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import GuessNumber from './GuessNumber';
 import MiniEcommerce from './MiniEcommerce';
 import ToDoList from './ToDoList';
-import MemoryMatchGame from './MemoryMatchGame'; // Importa il gioco
+import MemoryMatchGame from './MemoryMatchGame'; // Importa il gioco Memory Match
+import ObstacleGame from './ObstacleGame'; // Importa il gioco Obstacle Game
 
 const projects = [
   {
@@ -29,11 +30,19 @@ const projects = [
   },
   {
     id: 4,
+    title: "Obstacle Game", // Aggiungi il gioco Obstacle Game
+    description: "A thrilling obstacle game built with React",
+    longDescription: "This exciting obstacle game challenges players to navigate through various obstacles while jumping to avoid collisions. Test your reflexes and improve your high score!",
+    component: <ObstacleGame />
+  },
+  {
+    id: 5,
     title: "To Do List",
     description: "A task management system built with React and Firebase",
     longDescription: "This task management system allows users to create, edit, and delete tasks. It also provides features such as task categorization and due date management.",
     component: <ToDoList />
   }
+  
 ];
 
 function ProjectDetail() {
@@ -55,6 +64,7 @@ function ProjectDetail() {
 }
 
 export default ProjectDetail;
+
 
 
 
