@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import './Navbar.css';
 import LottieMenuIcon from './LottieMenuIcon';
-import ThemeToggleButton from './ThemeToggleButton'; // Importa il nuovo componente
+import ThemeToggleButton from './ThemeToggleButton';
 import { GiAbstract006 } from "react-icons/gi";
 
 function Navbar({ handleShowLoadingScreen }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0); // Variabile per il conteggio dei clic
+  const [clickCount, setClickCount] = useState(0);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -16,50 +17,53 @@ function Navbar({ handleShowLoadingScreen }) {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
-        // Scroll verso il basso, nasconde la navbar
         navbar.classList.add('hidden');
       } else {
-        // Scroll verso l'alto, mostra la navbar
         navbar.classList.remove('hidden');
       }
 
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Per evitare valori negativi su dispositivi mobili
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function per rimuovere il listener quando il componente viene smontato
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const handleIconClick = (event) => {
-    event.preventDefault(); // Prevenire l'azione predefinita del link
+    event.preventDefault();
     setClickCount(prevCount => {
       const newCount = prevCount + 1;
 
       if (newCount === 10) {
-        handleShowLoadingScreen(); // Mostra la LoadingScreen quando si raggiungono 5 clic
-        return 0; // Resetta il contatore dei clic
+        handleShowLoadingScreen();
+        return 0;
       }
 
       return newCount;
     });
   };
 
-  // Aggiungi il valore di clickCount per evitare l'avviso
   useEffect(() => {
     console.log(`Click count: ${clickCount}`);
   }, [clickCount]);
 
+  const handlers = useSwipeable({
+    onSwipedRight: () => setIsOpen(true),
+    onSwipedLeft: () => setIsOpen(false),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" {...handlers}>
       <div className="navbar-container">
         <div onClick={handleIconClick} className="show-loading-button" type="button">
           <GiAbstract006 />
         </div>
-        <ThemeToggleButton /> {/* Usa il bottone animato */}
+        <ThemeToggleButton />
         <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
           <LottieMenuIcon />
         </div>

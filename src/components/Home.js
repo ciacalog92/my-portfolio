@@ -82,7 +82,7 @@ function Home() {
             for presenting your business.5
           </p>
           <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
-          <button className="discover-button">Discover</button>
+          <button className="discover-button">Info</button>
         </div>
         <div className="card">
           <h3>Dynamic Website</h3>
@@ -93,7 +93,7 @@ function Home() {
           <p className="tech-stack">
             Technologies: HTML, CSS, JavaScript, PHP, MySQL
           </p>
-          <button className="discover-button">Discover</button>
+          <button className="discover-button">Info</button>
         </div>
         <div className="card">
           <h3>E-commerce Development</h3>
@@ -104,7 +104,7 @@ function Home() {
           <p className="tech-stack">
             Technologies: Shopify, WooCommerce, React, Node.js
           </p>
-          <button className="discover-button">Discover</button>
+          <button className="discover-button">Info</button>
         </div>
       </div>
 

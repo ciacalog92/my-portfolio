@@ -20,8 +20,8 @@ const LottieMenuIcon = () => {
     <div onClick={handleClick}>
       <Lottie
         options={defaultOptions}
-        height={60}
-        width={60}
+        height={55}
+        width={55}
         isStopped={!isPlaying} // Controlla se l'animazione deve essere ferma
         isPaused={false}
       />
