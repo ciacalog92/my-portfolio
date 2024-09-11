@@ -1,7 +1,22 @@
+/* Imposta box-sizing globale per includere il padding nella larghezza */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden; /* Prevenire lo scroll orizzontale */
+}
+
 /* Stile per il contenitore delle card con scroll orizzontale */
+.home  {
+  width: 100%; /* Sostituito 100vw con 100% per evitare overflow */
+}
+
 .white-section {
   position: relative;
-  width: 100%;
+  width: 100%; /* Sostituito 100vw con 100% */
   height: 100vh; /* Imposta l'altezza della sezione a 100% dell'altezza della finestra */
   overflow: hidden;
   display: flex;
@@ -15,7 +30,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%; /* Sostituito 100vw con 100% */
   height: 100%;
   overflow: hidden;
 }
@@ -30,7 +45,7 @@
 /* Sezione nera */
 .black-section {
   background-color: rgb(2, 2, 2);
-  width: 100vw;  /* Adatta la larghezza allo schermo */
+  width: 100%;  /* Sostituito 100vw con 100% */
   height: 100vh; /* Adatta l'altezza allo schermo */
   display: flex;
   justify-content: center;
@@ -52,36 +67,15 @@
 .page {
   flex: 0 0 100%; /* Ogni pagina occupa il 100% della larghezza del contenitore */
   height: 100%; /* L'altezza della pagina è uguale a quella della sezione */
-  background-color: grey;
+  background-image: linear-gradient(to bottom, #111111, #22212b, #323148, #414266, #505486, #64679b, #787bb0, #8d8fc6, #abaad4, #c7c5e2, #e4e2f0, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: white;
   scroll-snap-align: start; /* Ogni pagina scatta all'inizio dello scroll */
-  border: 2px solid white;
 }
 
-/* Media queries per schermi piccoli */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .page {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  .page {
-    font-size: 1.2rem;
-  }
-}
 .card-container {
   display: flex;
   flex-direction: row; /* Layout orizzontale per le card */
@@ -105,12 +99,10 @@
   flex-direction: column; /* Disporre il contenuto in una colonna */
   justify-content: center; /* Centra verticalmente il contenuto */
   align-items: center; /* Centra orizzontalmente il contenuto */
-  flex: 0 0 100%; /* Ogni card occupa l'80% della larghezza visibile */
+  flex: 0 0 100%; /* Ogni card occupa il 100% della larghezza visibile */
   scroll-snap-align: center; /* Effetto snap al centro della card */
-  background: linear-gradient(300deg, deepskyblue, darkviolet, blue); /* Gradiente di base */
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite; /* Animazione del gradiente */
   border-radius: 12px;
+  background-color: black;
   height: 400px; /* Imposta l'altezza della card */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -118,41 +110,6 @@
   padding: 15px;
   box-sizing: border-box; /* Include padding nella larghezza totale */
   text-align: center; /* Allinea il testo al centro */
-}
-
-/* Animazione del gradiente */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.card h3 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: black;
-  font-size: 3rem; /* Riduci la dimensione del font */
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.8rem; /* Riduci la dimensione del font */
-  color: #fff;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.card img {
-  width: 80%; /* Riduci la larghezza dell'immagine */
-  height: auto;
 }
 
 /* Puntini sotto la card per indicare le pagine */
@@ -170,36 +127,41 @@
   margin: 0 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 30px;
 }
 
 .pagination-dot.active {
   background-color: #007bff; /* Colore del puntino attivo */
 }
 
+.social-icons {
+  font-size: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
 /* Stili responsive per schermi più piccoli */
 @media (max-width: 600px) {
   .card-container {
     display: flex;
-    flex-direction: row; /* Layout orizzontale per le card */
-    justify-content: flex-start; /* Cambia da center a flex-start per evitare spazi non necessari */
-    align-items: center; /* Allinea le card verticalmente al centro */
-    gap: 20px; /* Spazio tra le card */
-    overflow-x: auto; /* Scroll orizzontale */
-    scroll-snap-type: x mandatory; /* Effetto snap */
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     padding: 20px;
-    scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+    scrollbar-width: none;
   }
 
   .card {
-    flex-direction: column; /* Disporre il contenuto in una colonna */
-    justify-content: center; /* Centra verticalmente il contenuto */
-    flex: 0 0 100%; /* Ogni card occupa l'80% della larghezza visibile */
-    scroll-snap-align: center; /* Effetto snap al centro della card */
-  
-    height: 400px; /* Imposta l'altezza della card */
-
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    height: 500px;
     padding: 15px;
-    box-sizing: border-box; /* Include padding nella larghezza totale */
+    box-sizing: border-box;
   }
 
   .card h3 {
@@ -209,24 +171,51 @@
   .card p {
     font-size: 0.7rem; /* Riduci ulteriormente la dimensione del font */
   }
-  @media (max-width: 480px) {
-    .white-section {
-      height: 65vh;
-      width: 100%;
-      background-color: #ffffff;
-    }
-  
-    .video-container {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .responsive-video {
-      width: 100%;
-      height: 100%; /* Permette al video di adattarsi alla larghezza dello schermo */
-      object-fit: cover; /* Mantiene il video in proporzione, coprendo l'area */
-      
-    }
+}
 
+@media (max-width: 480px) {
+  .white-section {
+    height: 65vh;
+    width: 100%; /* Mantieni la larghezza al 100% */
+    background-color: #ffffff;
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .responsive-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-container {
+    width: 100%; /* Adattato per evitare overflow su schermi piccoli */
+  }
+
+  .page {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .page {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .page {
+    font-size: 1.2rem;
   }
 }

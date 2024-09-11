@@ -2,6 +2,8 @@
 
 /* Stili per il contenitore dei progetti */
 .projects-container {
+  display: flex;
+  flex-direction: column;
   padding: 80px 20px;
   text-align: center; /* Centra il testo */
   margin-bottom: 80px;

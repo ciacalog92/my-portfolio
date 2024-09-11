@@ -7,9 +7,11 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 80px;
+    margin-top: 50px;
     color: #1d1d1f; /* Apple-like text color */
     background-color: #ffffff; /* Light gray background */
     border-radius: 32px; /* Rounded corners */
+    border: 1px solid #e5e5e5;
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6); /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: var(--background-color); /* Utilizza la variabile CSS per il colore di sfondo */
@@ -124,6 +126,7 @@
 .cv-card {
   background-color: #ffffff;
   border-radius: 18px;
+  border: 1px solid #eaeaea;
   padding: 30px;
   margin-top: 30px;
   cursor: pointer;
@@ -160,6 +163,7 @@
   margin-top: 30px;
   padding: 30px;
   background-color: #ffffff;
+  border: 1px solid #eaeaea;
   border-radius: 18px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: var(--background-color); /* Utilizza la variabile CSS per il colore di sfondo */
@@ -190,7 +194,7 @@
 .cv-content li {
   margin-bottom: 15px;
   font-size: 16px;
-  color: #494949;
+  color: #640ddd;
   background-color: var(--background-color); /* Utilizza la variabile CSS per il colore di sfondo */
   color: var(--text-color); /* Utilizza la variabile CSS per il colore del testo */
 
