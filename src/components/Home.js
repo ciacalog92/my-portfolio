@@ -43,16 +43,21 @@ function Home() {
       </section>
 
       <section class="black-section">
-        <div class="scroll-container">
-          <div class="page">
-          </div>
+        <div class="page">
+          
         </div>
       </section>
       
       {/* Card section */}
       <div className="card-container" ref={cardContainerRef}>
         <div className="card">
-          
+        <h3>STATIC WEBSITE</h3>
+            <p>
+              Creation of static and responsive websites with up to 5 pages,
+              ideal for presenting your business.5
+            </p>
+            <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
+            <button className="discover-button">Discover</button>
         </div>
         <div className="card">
           <h3>Dynamic Website</h3>
@@ -65,17 +70,8 @@ function Home() {
           </p>
           <button className="discover-button">Discover</button>
         </div>
-        <div className="card"> <h3>Dynamic Website</h3>
-          <p>
-            Creation of dynamic websites with CMS (WordPress, Joomla), including
-            advanced SEO and performance optimization.
-          </p>
-          <p className="tech-stack">
-            Technologies: HTML, CSS, JavaScript, PHP, MySQL
-          </p>
-          <button className="discover-button">Discover</button>
-
-          </div>
+        <div className="card"></div>
+        
       </div>
 
       {/* Navigation dots */}

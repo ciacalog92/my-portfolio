@@ -42,7 +42,7 @@ function About() {
           <a href="/CV_CALOGERO_CIACCIO.pdf" download className="download-button">Download CV</a>
         </div>
       )}
-
+    <div className="about-content">
       <h2>About Me</h2>
       <p>
         Hi, I’m Calogero Ciaccio, a Junior Front-End Developer passionate about technology and innovation.
@@ -66,6 +66,7 @@ function About() {
         My goal is to grow as a developer, working on stimulating projects
         and contributing to creating innovative and user-friendly web experiences.
       </p>
+      </div>
     </div>
   );
 }

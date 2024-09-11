@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff; /* Imposta il colore di sfondo, se necessario */
+  background-color: black; /* Imposta il colore di sfondo, se necessario */
 }
 
 /* Contenitore del video */
@@ -44,7 +44,7 @@ body {
 
 /* Sezione nera */
 .black-section {
-  background-color: rgb(2, 2, 2);
+  background-image: linear-gradient(to bottom, #111111, #22212b, #323148, #414266, #505486, #64679b, #787bb0, #8d8fc6, #abaad4, #c7c5e2, #e4e2f0, #ffffff);
   width: 100%;  /* Sostituito 100vw con 100% */
   height: 100vh; /* Adatta l'altezza allo schermo */
   display: flex;
@@ -53,19 +53,10 @@ body {
   overflow: hidden; /* Assicura che il contenitore non si espanda fuori dalla viewport */
 }
 
-/* Contenitore scrollabile con effetto snap */
-.scroll-container {
-  display: flex;
-  width: 100%; /* Adatta la larghezza al 100% della sezione */
-  height: 100%;
-  overflow-x: auto; /* Permette lo scroll orizzontale */
-  scroll-snap-type: x mandatory; /* Attiva lo snap orizzontale */
-  scroll-behavior: smooth; /* Scroll morbido */
-}
+
 
 /* Stili per le pagine */
 .page {
-  flex: 0 0 100%; /* Ogni pagina occupa il 100% della larghezza del contenitore */
   height: 100%; /* L'altezza della pagina è uguale a quella della sezione */
   background-image: linear-gradient(to bottom, #111111, #22212b, #323148, #414266, #505486, #64679b, #787bb0, #8d8fc6, #abaad4, #c7c5e2, #e4e2f0, #ffffff);
   display: flex;
@@ -74,6 +65,8 @@ body {
   font-size: 2rem;
   color: white;
   scroll-snap-align: start; /* Ogni pagina scatta all'inizio dello scroll */
+  box-sizing: border-box;
+
 }
 
 .card-container {
@@ -160,12 +153,13 @@ body {
     flex: 0 0 100%;
     scroll-snap-align: center;
     height: 500px;
-    padding: 15px;
+    padding: 5px;
     box-sizing: border-box;
   }
 
   .card h3 {
     font-size: 2rem; /* Riduci la dimensione del font per gli schermi piccoli */
+    font-style: white;
   }
 
   .card p {
@@ -178,6 +172,7 @@ body {
     height: 65vh;
     width: 100%; /* Mantieni la larghezza al 100% */
     background-color: #ffffff;
+    margin-top: 20px;
   }
 
   .video-container {
@@ -193,6 +188,8 @@ body {
 
   .card-container {
     width: 100%; /* Adattato per evitare overflow su schermi piccoli */
+    overflow-x: auto; /* Scroll orizzontale */
+
   }
 
   .page {
