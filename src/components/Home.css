@@ -209,4 +209,24 @@
   .card p {
     font-size: 0.7rem; /* Riduci ulteriormente la dimensione del font */
   }
+  @media (max-width: 480px) {
+    .white-section {
+      height: 65vh;
+      width: 100%;
+      background-color: #ffffff;
+    }
+  
+    .video-container {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .responsive-video {
+      width: 100%;
+      height: 100%; /* Permette al video di adattarsi alla larghezza dello schermo */
+      object-fit: cover; /* Mantiene il video in proporzione, coprendo l'area */
+      
+    }
+
+  }
 }
