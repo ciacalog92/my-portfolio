@@ -70,6 +70,7 @@ body {
 }
 
 .card-container {
+  color: white;
   display: flex;
   flex-direction: row; /* Layout orizzontale per le card */
   justify-content: flex-start; /* Cambia da center a flex-start per evitare spazi non necessari */
@@ -88,13 +89,14 @@ body {
 
 /* Stile delle card */
 .card {
+  gap: 30px;
   display: flex; /* Abilita Flexbox */
   flex-direction: column; /* Disporre il contenuto in una colonna */
   justify-content: center; /* Centra verticalmente il contenuto */
   align-items: center; /* Centra orizzontalmente il contenuto */
   flex: 0 0 100%; /* Ogni card occupa il 100% della larghezza visibile */
   scroll-snap-align: center; /* Effetto snap al centro della card */
-  border-radius: 12px;
+  border-radius: 32px;
   background-color: black;
   height: 400px; /* Imposta l'altezza della card */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -103,7 +105,11 @@ body {
   padding: 15px;
   box-sizing: border-box; /* Include padding nella larghezza totale */
   text-align: center; /* Allinea il testo al centro */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+
 
 /* Puntini sotto la card per indicare le pagine */
 .pagination {
@@ -127,10 +133,21 @@ body {
   background-color: #007bff; /* Colore del puntino attivo */
 }
 
+.discover-button {
+  background-color: #111111;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 32px;
+  padding: 10px;
+}
+
 .social-icons {
-  font-size: 40px;
-  display: flex;
-  justify-content: space-around;
+  font-size: 50px;
+}
+
+.social-icons svg {
+  padding: 10px;
+  
 }
 
 /* Stili responsive per schermi più piccoli */
@@ -187,10 +204,35 @@ body {
   }
 
   .card-container {
-    width: 100%; /* Adattato per evitare overflow su schermi piccoli */
-    overflow-x: auto; /* Scroll orizzontale */
-
+    width: 100%; /* Assicurati che il contenitore della card occupi il 100% */
+    overflow-x: auto; /* Abilita lo scroll orizzontale */
+    scroll-snap-type: x mandatory; /* Effetto snap orizzontale */
+    display: flex; /* Mantieni il layout flex */
+    flex-direction: row; /* Layout orizzontale */
+    gap: 10px; /* Spazio tra le card */
+    padding: 0 10px; /* Riduci il padding */
   }
+
+  .card {
+    flex: 0 0 100%; /* Mantieni la larghezza della card al 100% del viewport */
+    height: auto; /* Lascia che l'altezza della card si adatti al contenuto */
+    min-height: 500px; /* Imposta un'altezza minima per evitare che la card diventi troppo piccola */
+    box-sizing: border-box; /* Includi il padding nella larghezza e altezza */
+    padding: 3px; /* Spazio interno alla card */
+    border-radius: 16px; /* Riduci i bordi arrotondati per schermi piccoli */
+    margin: 0 auto; /* Centra la card */
+    background-color: #000; /* Colore di sfondo */
+  }
+
+  .card h3 {
+    font-size: 1.5rem; /* Riduci leggermente la dimensione del titolo */
+  }
+
+  .card p {
+    font-size: 0.9rem; /* Riduci la dimensione del testo per schermi piccoli */
+  }
+  
+  
 
   .page {
     width: 100%;

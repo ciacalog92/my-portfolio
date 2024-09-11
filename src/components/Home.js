@@ -44,20 +44,45 @@ function Home() {
 
       <section class="black-section">
         <div class="page">
-          
+          <section className="black-section cta-and-skills-section">
+            <div className="cta-content">
+              <h2>Take Your Business to the Next Level</h2>
+              <p>
+                Ready to make your mark online? Whether you need a website or a
+                custom web app, we provide tailor-made solutions that meet your
+                unique needs. Let’s turn your ideas into reality!
+              </p>
+              <button className="contact-button">Start Your Project</button>
+            </div>
+
+            <div className="skills-content">
+              <h2>Technologies We Use</h2>
+              <p>
+                Here are some of the key technologies that power our projects:
+              </p>
+              <div className="skills-icons">
+                <img src="html-icon.png" alt="HTML" />
+                <img src="css-icon.png" alt="CSS" />
+                <img src="js-icon.png" alt="JavaScript" />
+                <img src="react-icon.png" alt="React" />
+                <img src="nodejs-icon.png" alt="Node.js" />
+                <img src="wordpress-icon.png" alt="WordPress" />
+              </div>
+            </div>
+          </section>
         </div>
       </section>
-      
+
       {/* Card section */}
       <div className="card-container" ref={cardContainerRef}>
         <div className="card">
-        <h3>STATIC WEBSITE</h3>
-            <p>
-              Creation of static and responsive websites with up to 5 pages,
-              ideal for presenting your business.5
-            </p>
-            <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
-            <button className="discover-button">Discover</button>
+          <h3>Static Website</h3>
+          <p>
+            Creation of static and responsive websites with up to 5 pages, ideal
+            for presenting your business.5
+          </p>
+          <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
+          <button className="discover-button">Discover</button>
         </div>
         <div className="card">
           <h3>Dynamic Website</h3>
@@ -70,8 +95,17 @@ function Home() {
           </p>
           <button className="discover-button">Discover</button>
         </div>
-        <div className="card"></div>
-        
+        <div className="card">
+          <h3>E-commerce Development</h3>
+          <p>
+            Build fully integrated e-commerce websites with secure payment
+            gateways and inventory management.
+          </p>
+          <p className="tech-stack">
+            Technologies: Shopify, WooCommerce, React, Node.js
+          </p>
+          <button className="discover-button">Discover</button>
+        </div>
       </div>
 
       {/* Navigation dots */}
@@ -90,15 +124,24 @@ function Home() {
       {/* Social icons */}
       <div className="social-icons">
         <a
-          href="https://wa.me/393312997797"target="_blank"rel="noopener noreferrer">
+          href="https://wa.me/393312997797"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaWhatsapp />
         </a>
         <a
-          href="https://www.instagram.com/ciacciocalogero/"target="_blank"rel="noopener noreferrer">
+          href="https://www.instagram.com/ciacciocalogero/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaInstagram />
         </a>
         <a
-          href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/"target="_blank"rel="noopener noreferrer">
+          href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaLinkedin />
         </a>
       </div>
