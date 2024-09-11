@@ -119,3 +119,35 @@
 .show-loading-button {
   font-size: 30px;
 }
+
+@media (max-width: 500px) {
+  .navbar-container {
+    flex-direction: flex;
+    align-items: center; /* Centra gli elementi */
+  }
+
+  .menu-icon {
+    margin-bottom: 1rem; /* Distanza tra l'icona e il menu */
+  }
+
+  .nav-menu {
+    right: 0;
+    width: 100%; /* Usa tutta la larghezza dello schermo */
+    top: 70px; /* Regola l'altezza in base alle tue esigenze */
+  }
+
+  .nav-links {
+    padding: 1rem;
+    font-size: 0.9rem; /* Riduce la dimensione del testo */
+  }
+}
+
+/* Aggiungi uno stato attivo per il bottone */
+.theme-toggle.active {
+  background-color: var(--button-background);
+  color: var(--button-text);
+}
+
+.show-loading-button {
+  font-size: 30px;
+}
