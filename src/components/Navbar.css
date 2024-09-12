@@ -1,5 +1,4 @@
-
-
+/* Navbar */
 .navbar {
   background-color: transparent;
   backdrop-filter: saturate(180%) blur(20px);
@@ -12,21 +11,19 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effetto di scroll: cambia colore della navbar */
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 1); /* Sfondo bianco */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.hidden {
-  transform: translateY(-100%); /* Sposta la navbar fuori dallo schermo */
+  transform: translateY(-100%);
   transition: transform 0.3s ease;
 }
 
-
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* Allinea il menu hamburger a destra */
+  justify-content: space-between;
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
@@ -65,132 +62,90 @@
 
 /* Menu */
 .nav-menu {
-  display: none; /* Nasconde il menu di default */
+  display: flex;
   flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 60px; /* Regola l'altezza in base alle tue esigenze */
-  right: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  top: 60px;
+  right: 0;
+  background: #ffffff; /* Sfondo bianco solido */
   border-radius: 5px;
-  width: 200px; /* Larghezza del menu */
+  width: 100%; /* Copre tutta la larghezza su dispositivi mobili */
   z-index: 1;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-
+  transform: translateY(-100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Mostra il menu quando è attivo */
 .nav-menu.active {
-  display: flex;
-  transform: translateX(0);
-
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
 }
 
+/* Item */
 .nav-item {
   margin: 0;
+  padding: 1rem 0;
 }
-.nav-menu {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.5s ease-in-out;
-}
-
-.nav-menu.active {
-  height: 200px; /* Imposta l'altezza desiderata per il menu aperto */
-}
-
 
 .nav-links {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   color: #000;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: block;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Effetto hover per i link */
+/* Hover effect */
 .nav-links:hover {
   color: #0071e3;
-  transform: scale(1.1); /* Ingrandisce leggermente il testo */
+  transform: scale(1.1);
 }
 
-/* Stili per schermi più piccoli */
+/* Stili per dispositivi mobili */
 @media screen and (max-width: 768px) {
   .navbar-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* Centra verticalmente sia l'icona hamburger che il Lottie */
+    align-items: center;
     padding-top: 10px;
   }
 
-  .menu-icon {
-    margin-bottom: 0; /* Rimuovi margini non necessari */
-    height: 30px; /* Assicurati che l'icona hamburger abbia un'altezza simile a Lottie */
-  }
-
-  .lottie-animation {
-    height: 30px; /* Imposta la stessa altezza del Lottie per allinearlo all'hamburger */
-    margin: 0; /* Elimina eventuali margini che potrebbero spostare l'elemento */
-  }
-
   .nav-menu {
-    right: 0;
-    width: auto; /* Mantieni una larghezza adeguata per il menu */
+    background: #ffffff88; /* Sfondo bianco solido */
+    width: 100%;
+    height: 400px;
     top: 60px;
   }
 
   .nav-links {
-    padding: 1rem;
-    font-size: 1.5rem; /* Riduce la dimensione del testo */
+    padding: 2rem;
+    font-size: 1.5rem;
   }
- 
 }
 
 @media (max-width: 500px) {
-  .navbar-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; /* Centra verticalmente sia l'icona hamburger che il Lottie */
-    padding-top: 10px;
-  }
   .nav-menu.active {
+    background: #ffffff; /* Sfondo bianco solido su dispositivi più piccoli */
     width: 100%;
-    height: 600px; /* Imposta l'altezza desiderata per il menu aperto */
-  }
-  .menu-icon {
-    margin-bottom: 0; /* Rimuovi margini non necessari */
-    height: 30px; /* Assicurati che l'icona hamburger abbia un'altezza simile a Lottie */
-  }
-
-  .theme-toggle {
-    margin: 0; /* Elimina eventuali margini che potrebbero spostare l'elemento */
-  }
-
-  .nav-menu {
-    right: 0;
-    width: auto; /* Mantieni una larghezza adeguata per il menu */
-    top: 60px;
+    height: 600px;
+  
   }
 
   .nav-links {
-    padding: 1rem;
-    font-size: 1.5rem; /* Riduce la dimensione del testo */
+    padding: 2rem;
+    font-size: 1.7rem;
   }
-  
-
-
 }
 
-
-
-/* Aggiungi uno stato attivo per il bottone */
+/* Bottone di toggle tema */
 .theme-toggle.active {
   background-color: var(--button-background);
   color: var(--button-text);
@@ -198,4 +153,19 @@
 
 .show-loading-button {
   font-size: 30px;
+}
+
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #ffffff;
+  --button-text: #ffffff;
+}
+
+/* Stili generali per il tema notte */
+.dark-mode {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --button-background: #444;
+  --button-text: #ffffff;
 }

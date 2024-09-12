@@ -1,8 +1,18 @@
-import React, { useState, useEffect, useRef } from "react"; // Add useRef here
+import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
-import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
-import ChatBot from "./ChatBot"; // Import the ChatBot component
-import videoSrc from "../images/video.mp4"; // Import the video file
+import ChatBot from "./ChatBot"; // Importa il componente ChatBot
+import videoSrc from "../images/video.mp4"; // Importa il file video
+import Lottie from "lottie-react";
+import wordpressIcon from '../images/wordpress.png';
+import htmlIcon from '../images/html.png';
+import cssIcon from '../images/css.png';
+import jsIcon from '../images/javascript.png';
+import reactIcon from '../images/react.png';
+import nodeIcon from '../images/nodejs.png';
+import whatsappAnimation from '../animations/whatsapp.json';
+import instagramAnimation from '../animations/instagram.json';
+import linkedinAnimation from '../animations/linkedin.json';
+
 function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const cardContainerRef = useRef(null);
@@ -42,8 +52,8 @@ function Home() {
         </div>
       </section>
 
-      <section class="black-section">
-        <div class="page">
+      <section className="black-section">
+        <div className="page">
           <section className="black-section cta-and-skills-section">
             <div className="cta-content">
               <h2>Take Your Business to the Next Level</h2>
@@ -61,12 +71,12 @@ function Home() {
                 Here are some of the key technologies that power our projects:
               </p>
               <div className="skills-icons">
-                <img src="html-icon.png" alt="HTML" />
-                <img src="css-icon.png" alt="CSS" />
-                <img src="js-icon.png" alt="JavaScript" />
-                <img src="react-icon.png" alt="React" />
-                <img src="nodejs-icon.png" alt="Node.js" />
-                <img src="wordpress-icon.png" alt="WordPress" />
+                <img src={htmlIcon} alt="HTML" />
+                <img src={cssIcon} alt="CSS" />
+                <img src={jsIcon} alt="JavaScript" />
+                <img src={reactIcon} alt="React" />
+                <img src={nodeIcon} alt="Node.js" />
+                <img src={wordpressIcon} alt="WordPress" />
               </div>
             </div>
           </section>
@@ -78,8 +88,8 @@ function Home() {
         <div className="card">
           <h3>Static Website</h3>
           <p>
-            Creation of static and responsive websites with up to 5 pages, ideal
-            for presenting your business.5
+            Creation of static and responsive websites<br /> with up to 5 pages, ideal
+            for<br /> presenting your business.
           </p>
           <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
           <button className="discover-button">Info</button>
@@ -87,22 +97,22 @@ function Home() {
         <div className="card">
           <h3>Dynamic Website</h3>
           <p>
-            Creation of dynamic websites with CMS (WordPress, Joomla), including
+            Creation of dynamic websites with CMS:<br /> (WordPress, Joomla), including
             advanced SEO and performance optimization.
           </p>
           <p className="tech-stack">
-            Technologies: HTML, CSS, JavaScript, PHP, MySQL
+            Technologies:<br /> HTML, CSS, JavaScript, PHP, MySQL
           </p>
           <button className="discover-button">Info</button>
         </div>
         <div className="card">
           <h3>E-commerce Development</h3>
           <p>
-            Build fully integrated e-commerce websites with secure payment
-            gateways and inventory management.
+            Build fully integrated e-commerce websites<br /> with secure payment
+            gateways and<br /> inventory management.
           </p>
           <p className="tech-stack">
-            Technologies: Shopify, WooCommerce, React, Node.js
+            Technologies:<br /> Shopify, WooCommerce, React, Node.js
           </p>
           <button className="discover-button">Info</button>
         </div>
@@ -127,22 +137,25 @@ function Home() {
           href="https://wa.me/393312997797"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="WhatsApp"
         >
-          <FaWhatsapp />
+          <Lottie className="lottie-social" animationData={whatsappAnimation} loop={false} autoplay={true} />
         </a>
         <a
           href="https://www.instagram.com/ciacciocalogero/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Instagram"
         >
-          <FaInstagram />
+          <Lottie className="lottie-social" animationData={instagramAnimation} loop={false} autoplay={true} />
         </a>
         <a
           href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
-          <FaLinkedin />
+          <Lottie className="lottie-social" animationData={linkedinAnimation} loop={false} autoplay={true} />
         </a>
       </div>
 
@@ -155,3 +168,4 @@ function Home() {
 }
 
 export default Home;
+

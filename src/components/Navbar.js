@@ -3,7 +3,7 @@ import { useSwipeable } from 'react-swipeable';
 import './Navbar.css';
 import LottieMenuIcon from './LottieMenuIcon';
 import ThemeToggleButton from './ThemeToggleButton';
-import { GiAbstract006 } from "react-icons/gi";
+import { FcFullBattery } from "react-icons/fc";
 
 function Navbar({ handleShowLoadingScreen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +61,7 @@ function Navbar({ handleShowLoadingScreen }) {
     <nav className="navbar" {...handlers}>
       <div className="navbar-container">
         <div onClick={handleIconClick} className="show-loading-button" type="button">
-          <GiAbstract006 />
+        <FcFullBattery />
         </div>
         <ThemeToggleButton />
         <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
