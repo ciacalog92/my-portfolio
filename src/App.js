@@ -10,6 +10,9 @@ import Contacts from './components/Contacts';
 import LoadingScreen from './components/LoadingScreen';
 import MemoryMatchGame from './components/MemoryMatchGame';
 import ObstacleGame from './components/ObstacleGame'; // Importa il gioco a ostacoli
+import StaticWebsite from './components/StaticWebsite';
+import DynamicWebsite from './components/DynamicWebsite';
+import EcommerceDevelopment from './components/EcommerceDevelopment';
 import './App.css';
 
 const getCurrentTheme = () => {
@@ -74,6 +77,9 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/obstacle-game" element={<ObstacleGame />} /> {/* Nuovo percorso per il gioco */}
+                <Route path="/static-website" element={<StaticWebsite />} />
+                <Route path="/dynamic-website" element={<DynamicWebsite />} />
+                <Route path="/ecommerce-development" element={<EcommerceDevelopment />} />
               </Routes>
             ) : gameMode === 'game' ? (
               <MemoryMatchGame />

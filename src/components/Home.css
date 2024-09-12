@@ -5,13 +5,9 @@
   padding: 0;
 }
 
-body {
-  overflow-x: hidden; /* Prevenire lo scroll orizzontale */
-}
-
-/* Stile per il contenitore delle card con scroll orizzontale */
-.home  {
-  width: 100%; /* Sostituito 100vw con 100% per evitare overflow */
+html, body, .home {
+  height: 100%;
+  width: 100%;
 }
 
 .white-section {
@@ -44,6 +40,7 @@ body {
 
 /* Sezione nera */
 .black-section {
+
   background-image: linear-gradient(to bottom, #111111, #22212b, #323148, #414266, #505486, #64679b, #787bb0, #8d8fc6, #abaad4, #c7c5e2, #e4e2f0, #ffffff);
   width: 100%;  /* Sostituito 100vw con 100% */
   height: 100vh; /* Adatta l'altezza allo schermo */
@@ -166,6 +163,7 @@ body {
 .cta-content h2 {
   font-size: 4rem; /* Dimensione del testo del titolo */
   margin-bottom: 20px; /* Spazio sotto il titolo */
+  color: white;
 }
 
 /* Paragrafo CTA */
@@ -206,6 +204,7 @@ body {
 .skills-content h2 {
   font-size: 4rem; /* Dimensione del testo del titolo */
   margin-bottom: 20px; /* Spazio sotto il titolo */
+  color: white;
 }
 
 /* Paragrafo competenze */
@@ -232,6 +231,50 @@ body {
   width: 80px; /* Larghezza delle icone */
   height: auto; /* Mantiene la proporzione */
 }
+.discover-button a {
+  color: white;
+  text-decoration: none;
+}
+.footer {
+  background-color: #00000068;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+ margin: 10px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-social-icon {
+  width: 30px;
+  height: 30px;
+  margin: 10px 10px;
+  vertical-align: middle;
+}
+
+
 
 /* Media Query per dispositivi mobili */
 @media (max-width: 768px) {
@@ -283,10 +326,10 @@ body {
   .black-section {
     padding: 40px 20px; /* Ulteriore riduzione del padding per schermi molto piccoli */
   }
-
+  
   .cta-content h2,
   .skills-content h2 {
-    font-size: 1.5rem; /* Ulteriore riduzione della dimensione del testo dei titoli */
+    font-size: 1.75rem; /* Ulteriore riduzione della dimensione del testo dei titoli */
   }
 
   .cta-content p,
@@ -318,8 +361,59 @@ body {
   .skills-icons img {
     width: 60px; /* Ulteriore riduzione della dimensione delle icone */
   }
-
+  .footer-links a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
 }
+
+@media (min-width: 1200px) {
+  .white-section {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .video-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .responsive-video {
+    object-fit: cover;
+    object-position: center; /* Assicura che il video resti centrato */
+    height: 100%;
+    width: 100%;
+  }
+  .discover-button {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 15px 50px;
+  }
+  .discover-button:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border: white;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 15px 50px;
+  }
+
+  .card h3 {
+    font-size: 4rem; /* Dimensione del font per gli schermi più grandi */
+    font-style: white;
+  }
+
+  .card p {
+    font-size: 1rem; /* Dimensione del font per gli schermi più grandi */
+  }
+}
+
 /* Stili responsive per schermi più piccoli */
 @media (max-width: 600px) {
   .card-container {

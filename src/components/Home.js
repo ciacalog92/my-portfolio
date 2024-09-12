@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
-import ChatBot from "./ChatBot"; // Importa il componente ChatBot
-import videoSrc from "../images/video.mp4"; // Importa il file video
+import ChatBot from "./ChatBot";
+import videoSrc from "../images/video.mp4";
 import Lottie from "lottie-react";
-import wordpressIcon from '../images/wordpress.png';
-import htmlIcon from '../images/html.png';
-import cssIcon from '../images/css.png';
-import jsIcon from '../images/javascript.png';
-import reactIcon from '../images/react.png';
-import nodeIcon from '../images/nodejs.png';
-import whatsappAnimation from '../animations/whatsapp.json';
-import instagramAnimation from '../animations/instagram.json';
-import linkedinAnimation from '../animations/linkedin.json';
+import wordpressIcon from "../images/wordpress.png";
+import htmlIcon from "../images/html.png";
+import cssIcon from "../images/css.png";
+import jsIcon from "../images/javascript.png";
+import reactIcon from "../images/react.png";
+import nodeIcon from "../images/nodejs.png";
+import whatsappAnimation from "../animations/whatsapp.json";
+import instagramAnimation from "../animations/instagram.json";
+import linkedinAnimation from "../animations/linkedin.json";
 
 function Home() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -88,8 +88,9 @@ function Home() {
         <div className="card">
           <h3>Static Website</h3>
           <p>
-            Creation of static and responsive websites<br /> with up to 5 pages, ideal
-            for<br /> presenting your business.
+            Creation of static and responsive websites
+            <br /> with up to 5 pages, ideal for
+            <br /> presenting your business.
           </p>
           <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
           <button className="discover-button">Info</button>
@@ -97,22 +98,26 @@ function Home() {
         <div className="card">
           <h3>Dynamic Website</h3>
           <p>
-            Creation of dynamic websites with CMS:<br /> (WordPress, Joomla), including
-            advanced SEO and performance optimization.
+            Creation of dynamic websites with CMS:
+            <br /> (WordPress, Joomla), including advanced SEO and performance
+            optimization.
           </p>
           <p className="tech-stack">
-            Technologies:<br /> HTML, CSS, JavaScript, PHP, MySQL
+            Technologies:
+            <br /> HTML, CSS, JavaScript, PHP, MySQL
           </p>
           <button className="discover-button">Info</button>
         </div>
         <div className="card">
           <h3>E-commerce Development</h3>
           <p>
-            Build fully integrated e-commerce websites<br /> with secure payment
-            gateways and<br /> inventory management.
+            Build fully integrated e-commerce websites
+            <br /> with secure payment gateways and
+            <br /> inventory management.
           </p>
           <p className="tech-stack">
-            Technologies:<br /> Shopify, WooCommerce, React, Node.js
+            Technologies:
+            <br /> Shopify, WooCommerce, React, Node.js
           </p>
           <button className="discover-button">Info</button>
         </div>
@@ -132,40 +137,69 @@ function Home() {
       </div>
 
       {/* Social icons */}
-      <div className="social-icons">
-        <a
-          href="https://wa.me/393312997797"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-        >
-          <Lottie className="lottie-social" animationData={whatsappAnimation} loop={false} autoplay={true} />
-        </a>
-        <a
-          href="https://www.instagram.com/ciacciocalogero/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <Lottie className="lottie-social" animationData={instagramAnimation} loop={false} autoplay={true} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <Lottie className="lottie-social" animationData={linkedinAnimation} loop={false} autoplay={true} />
-        </a>
-      </div>
 
       {/* ChatBot positioned at the bottom right */}
       <div className="chatbot-container">
         <ChatBot />
       </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-links">
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-of-service">Terms of Service</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div className="footer-social-icons">
+            <a
+              href="https://wa.me/393312997797"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <Lottie
+                className="footer-social-icon"
+                animationData={whatsappAnimation}
+                loop={true}
+                autoplay={true}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/ciacciocalogero/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Lottie
+                className="footer-social-icon"
+                animationData={instagramAnimation}
+                loop={true}
+                autoplay={true}
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/calogero-ciaccio-528a361a1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Lottie
+                className="footer-social-icon"
+                animationData={linkedinAnimation}
+                loop={true}
+                autoplay={true}
+              />
+            </a>
+          </div>
+          <p>
+            &copy; {new Date().getFullYear()} Your Company Name. All rights
+            reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
 
 export default Home;
-
