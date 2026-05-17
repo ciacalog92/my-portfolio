@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import ChatBot from "./ChatBot";
 import videoSrc from "../images/video.mp4";
@@ -56,13 +57,16 @@ function Home() {
         <div className="page">
           <section className="black-section cta-and-skills-section">
             <div className="cta-content">
-              <h2>Take Your Business to the Next Level</h2>
+              <h2>Porta il tuo business al livello successivo</h2>
               <p>
-                Ready to make your mark online? Whether you need a website or a
-                custom web app, we provide tailor-made solutions that meet your
-                unique needs. Let’s turn your ideas into reality!
+                Trasformo le tue idee in siti web moderni, veloci e su misura.
+                Sviluppo, restyling e assistenza: dalla landing page al
+                gestionale, fino al servizio dedicato di riparazione siti
+                <strong> Sitofixit</strong>. Richiedi una consulenza gratuita.
               </p>
-              <button className="contact-button">Start Your Project</button>
+              <Link to="/contacts" className="contact-button">
+                Richiedi una consulenza gratuita
+              </Link>
             </div>
 
             <div className="skills-content">
@@ -93,7 +97,7 @@ function Home() {
             <br /> presenting your business.
           </p>
           <p className="tech-stack">Technologies: HTML, CSS, JavaScript</p>
-          <button className="discover-button">Info</button>
+          <Link to="/static-website" className="discover-button">Info</Link>
         </div>
         <div className="card">
           <h3>Dynamic Website</h3>
@@ -106,7 +110,7 @@ function Home() {
             Technologies:
             <br /> HTML, CSS, JavaScript, PHP, MySQL
           </p>
-          <button className="discover-button">Info</button>
+          <Link to="/dynamic-website" className="discover-button">Info</Link>
         </div>
         <div className="card">
           <h3>E-commerce Development</h3>
@@ -119,13 +123,32 @@ function Home() {
             Technologies:
             <br /> Shopify, WooCommerce, React, Node.js
           </p>
-          <button className="discover-button">Info</button>
+          <Link to="/ecommerce-development" className="discover-button">Info</Link>
+        </div>
+        <div className="card">
+          <h3>Sitofixit · Assistenza siti web</h3>
+          <p>
+            Il tuo sito ha problemi, è lento o vulnerabile?
+            <br /> Manutenzione, fix bug, aggiornamenti
+            <br /> e messa in sicurezza.
+          </p>
+          <p className="tech-stack">
+            WordPress · React · PHP · DevOps
+          </p>
+          <a
+            className="discover-button"
+            href="https://sitofixit.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Scopri Sitofixit
+          </a>
         </div>
       </div>
 
       {/* Navigation dots */}
       <div className="pagination">
-        {Array.from({ length: 3 }).map((_, index) => (
+        {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={index}
             className={`pagination-dot ${
@@ -137,6 +160,29 @@ function Home() {
       </div>
 
       {/* Social icons */}
+
+      {/* Sezione vetrina + CTA finale */}
+      <section className="showcase-section">
+        <h2>Le mie creazioni parlano per me</h2>
+        <p className="showcase-subtitle">
+          Siti web, e-commerce, web app e giochi interattivi: ogni progetto è
+          pensato su misura per i miei clienti. Dai un’occhiata al portfolio e
+          scopri cosa posso realizzare per te.
+        </p>
+        <div className="showcase-actions">
+          <Link to="/projects" className="showcase-cta primary">
+            Vedi i progetti
+          </Link>
+          <Link to="/contacts" className="showcase-cta secondary">
+            Parliamone — Contattami
+          </Link>
+        </div>
+        <ul className="showcase-bullets">
+          <li>✓ Consulenza iniziale gratuita</li>
+          <li>✓ Preventivi chiari e senza sorprese</li>
+          <li>✓ Assistenza post-lancio con Sitofixit</li>
+        </ul>
+      </section>
 
       {/* ChatBot positioned at the bottom right */}
       <div className="chatbot-container">
