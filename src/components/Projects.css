@@ -95,6 +95,31 @@
   background-color: #0077ed;
 }
 
+.view-project:focus-visible {
+  outline: 3px solid #0077ed;
+  outline-offset: 2px;
+}
+
+.project-card:focus-within {
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .projects-container {
+    padding: 40px 12px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .project-card img {
+    height: 180px;
+  }
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
 /* Stili generali per il tema giorno */
 .light-mode {
   --background-color: #ffffff;
